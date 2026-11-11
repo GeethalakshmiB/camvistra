@@ -1,0 +1,104 @@
+# Build the signed source package of each selected Ubuntu release from
+#   branch master        -> Source/
+#   branch <release>     -> debian/
+# and upload it to that release's PPA, ppa:<LAUNCHPAD_USER>/camvistra-<release>.
+# Launchpad then builds the amd64/arm64 binary packages.
+#
+# Run it from GitHub: Actions -> "Upload to Launchpad" -> Run workflow.
+#
+# Repository settings needed (Settings -> Secrets and variables -> Actions):
+#   secret   LAUNCHPAD_GPG_PRIVATE_KEY   armored private key registered on Launchpad
+#   secret   LAUNCHPAD_GPG_PASSPHRASE    its passphrase (leave unset if it has none)
+#   variable LAUNCHPAD_USER              Launchpad account owning the PPAs (e.g. true-sight)
+
+name: Upload to Launchpad
+
+on:
+  workflow_dispatch:
+    inputs:
+      releases:
+        description: Ubuntu release(s) to upload
+        type: choice
+        options:
+          - jammy + noble
+          - jammy
+          - noble
+          - focal
+          - focal + jammy + noble
+        default: jammy + noble
+
+permissions:
+  contents: read
+
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      releases: ${{ steps.list.outputs.releases }}
+    steps:
+      - id: list
+        env:
+          CHOICE: ${{ inputs.releases }}
+        run: |
+          # "jammy + noble" -> ["jammy","noble"]
+          echo "releases=$(echo "$CHOICE" | tr -d ' ' | jq -Rc 'split("+")')" >> "$GITHUB_OUTPUT"
+
+  upload:
+    needs: select
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        release: ${{ fromJSON(needs.select.outputs.releases) }}
+    name: ${{ matrix.release }}
+    steps:
+      - name: Check out master (Source/, scripts/)
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: master
+
+      - name: Check out ${{ matrix.release }} (debian/)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.release }}
+          path: ${{ matrix.release }}
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends dpkg-dev devscripts dput xz-utils
+
+      - name: Import the Launchpad signing key
+        id: gpg
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.LAUNCHPAD_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
+
+      - name: Build the signed source package
+        env:
+          RELEASE: ${{ matrix.release }}
+          KEY: ${{ steps.gpg.outputs.fingerprint }}
+        run: master/scripts/build-source-package.sh "$RELEASE" "$KEY"
+
+      - name: Upload to ppa:${{ vars.LAUNCHPAD_USER }}/camvistra-${{ matrix.release }}
+        env:
+          RELEASE: ${{ matrix.release }}
+          LP_USER: ${{ vars.LAUNCHPAD_USER }}
+        run: |
+          test -n "$LP_USER" || { echo "Set the repository variable LAUNCHPAD_USER"; exit 1; }
+          # -u: Launchpad checks the signature itself.
+          dput -u "ppa:$LP_USER/camvistra-$RELEASE" build-output/source/"$RELEASE"/camvistra_*_source.changes
+          echo "Uploaded. Launchpad emails Accepted/Rejected; builds appear at"
+          echo "https://launchpad.net/~$LP_USER/+archive/ubuntu/camvistra-$RELEASE/+packages"
+
+      - name: Keep the source package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: camvistra-source-${{ matrix.release }}
+          path: |
+            build-output/source/${{ matrix.release }}/camvistra_*
+            build-output/source/camvistra_*.orig.tar.xz
+          if-no-files-found: ignore
