@@ -1,0 +1,42 @@
+camvistra (1.0.0.19-1~jammy1) jammy; urgency=medium
+  * Package the CamVistra PyQt5 application (Source/CamVistraPy) instead of
+    the C++/Qt application, from prebuilt files: debian/rules no longer
+    compiles anything and only installs the files in Source/.
+  * Install only what the application needs: the PyQt UI package (Linux
+    modules, compiled QML resources, native extension) in
+    /usr/lib/camvistra, the SDK libraries from
+    Source/lib/<Ubuntu_version>/<arch> in /usr/lib, and the SDK interface
+    headers (I*.h, with the export, enum and type headers they include)
+    in /usr/include/camvistra.
+  * Build-Depends: debhelper, dh-python, python3 and patchelf only.
+  * Depends: replace the Qt/QML -dev packages with the PyQt5 bindings
+    (QtQuick, QtWebEngine, QtChart), PyOpenGL, NumPy, psutil and the QML
+    modules the shared view imports; drop mkvtoolnix, add iputils-ping.
+  * Rename the package from truesight to camvistra: commands
+    camvistra and camvistra-root-launcher, /usr/lib/camvistra,
+    /usr/include/camvistra. Conflicts/Replaces truesight.
+
+ -- CamVistra <TrueSight@e-consystems.com>  Tue, 10 Nov 2026 17:00:00 +0530
+
+camvistra (1.0.0.18-1) jammy; urgency=medium
+  * Fixed the UI bug for Wifi Camera, added comments and code cleaning.
+  * See3CAM_24CUG integration, bug fixes for See3CAM_1318_TC, Modifications in the zoom handling and UI Layout changes.
+  * Added support for See3CAM_1318_TC, Audio with video recording , Histogram and Zoom implementation. And preserved the desktop user's PulseAudio connection when launching CamVistra with sudo.
+  * Bug fixes for Low cost Routecam_CU22.
+  * Removed the value in the header label in the Camera controls, Implemented Flip control in e-CAM212_USB and Added Proper Implementation for fetching all the available fps in Ethernet cameras.
+  * Low cost Routecam_CU22 integration and GStreamer implementation for e-CAM212_USB.
+  * Bug fixes for DensiCAM and See3CAM_130E integration.
+  * Bug fixes for e-CAM212_USB and See3CAM_CU58 integration.
+  * Added support for DensiCAM and new control implementation for ShelfVista.
+  * Bug fixes for e-CAM212_USB and cross-hair and grid implementation. Added support for See3CAM_130E and See3CAM_CU58.
+  * Added new controls for ShelfVista cameras, added multi-format still capture in USB cameras.
+  * Bug fixes for Routecam_Cu514, added manual ip connection for Routecam cameras.
+  * Added support for HEVC and H264 streaming and recording in USB cameras. Added support for E-cam16_USB.
+  * Added support for E-cam212_USb camera.
+  * Added support for Routecam_cu514.
+  * Added new controls for OEM variant of Wifi camera.
+  * Added support for Ethernet camera.
+  * Azure Configuration added.
+  * Initial release
+
+ -- CamVistra <TrueSight@e-consystems.com>  Thu, 01 Oct 2026 17:00:18 +0530

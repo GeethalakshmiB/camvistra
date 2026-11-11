@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CamVistra
+Comment=Camera application by e-con Systems
+Exec=/usr/bin/camvistra-root-launcher %U
+Icon=camvistra
+Terminal=true
+Categories=AudioVideo;Video;
