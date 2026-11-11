@@ -1,0 +1,102 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# debian/rules for the CamVistra PyQt5 application.
+#
+# Nothing is compiled here: Source/ holds only prebuilt files.
+#   Source/lib/<Ubuntu_version>/<arch>/        SDK libraries the app needs and
+#                                              the app's _native extension
+#   Source/include/*.h                         SDK interface headers
+#   Source/CamVistraPy/camvistra/              PyQt app with qml_rc.py
+# The SDK libraries and the extension must have been built on the same Ubuntu
+# release and architecture as this package (the extension also matches one
+# Python version).
+#
+# Installed layout:
+#   /usr/bin/camvistra                  launcher (python3 -m camvistra)
+#   /usr/bin/camvistra-root-launcher    runs the launcher through sudo
+#   /usr/lib/camvistra/camvistra/       Python package + _native extension
+#   /usr/lib/lib*SDK.so, libLogger.so   SDK libraries
+#   /usr/include/camvistra/             SDK interface headers
+
+export DH_VERBOSE=1
+export PYTHONDONTWRITEBYTECODE=1
+
+include /usr/share/dpkg/architecture.mk
+
+APPNAME := camvistra
+SRCDIR := Source
+PYSRC := $(SRCDIR)/CamVistraPy
+
+CAMVISTRA_PLATFORM := Ubuntu_24.04
+SDK_LIBDIR := $(SRCDIR)/lib/$(CAMVISTRA_PLATFORM)/$(DEB_HOST_ARCH)
+# The extension built for this release's python3, e.g. _native.cpython-310-x86_64-linux-gnu.so.
+# Matched on the host multiarch triplet (not the build machine's python3), so
+# cross builds (dpkg-buildpackage -aarm64) pick the arm64 extension.
+NATIVE := $(firstword $(wildcard $(SDK_LIBDIR)/_native.cpython-*-$(DEB_HOST_MULTIARCH).so))
+
+APPDIR := /usr/lib/$(APPNAME)
+DESTDIR := $(CURDIR)/debian/$(APPNAME)
+
+%:
+	dh $@ --with python3
+
+override_dh_auto_configure:
+
+# Only check that the prebuilt files for this release and architecture exist.
+override_dh_auto_build:
+	@test -n "$$(ls $(SDK_LIBDIR)/lib*.so 2>/dev/null)" || { \
+		echo "error: no SDK libraries in $(SDK_LIBDIR) (build them on $(CAMVISTRA_PLATFORM) $(DEB_HOST_ARCH))"; exit 1; }
+	@test -n "$(NATIVE)" || { \
+		echo "error: no _native.cpython-*-$(DEB_HOST_MULTIARCH).so in $(SDK_LIBDIR) (build the extension on $(CAMVISTRA_PLATFORM) $(DEB_HOST_ARCH))"; exit 1; }
+	@test -f $(PYSRC)/camvistra/qml_rc.py || { \
+		echo "error: $(PYSRC)/camvistra/qml_rc.py not found (run tools/build_resources.py)"; exit 1; }
+	@test -n "$$(ls $(SRCDIR)/include/*.h 2>/dev/null)" || { \
+		echo "error: no SDK headers in $(SRCDIR)/include"; exit 1; }
+
+override_dh_auto_test:
+
+override_dh_auto_install:
+	install -d $(DESTDIR)/usr/bin
+	install -d $(DESTDIR)/usr/lib
+	install -d $(DESTDIR)$(APPDIR)/camvistra
+	install -d $(DESTDIR)/usr/include/$(APPNAME)
+	install -d $(DESTDIR)/usr/share/applications
+	install -d $(DESTDIR)/usr/share/pixmaps
+
+	# PyQt UI application: Python modules (with the compiled qml_rc.py) and
+	# the extension. Caches and the Windows-only title bar filter are left out.
+	cd $(PYSRC)/camvistra && find . -name '*.py' \
+		-not -path '*/__pycache__/*' -not -path './controls/titlebar.py' \
+		-exec install -D -m 644 {} $(DESTDIR)$(APPDIR)/camvistra/{} \;
+	install -m 644 $(NATIVE) $(DESTDIR)$(APPDIR)/camvistra/
+
+	# SDK libraries (they find each other through RUNPATH $ORIGIN) and the
+	# SDK interface headers. The extension in the same folder was installed
+	# into the Python package above.
+	install -m 644 $(SDK_LIBDIR)/lib*.so $(DESTDIR)/usr/lib/
+	install -m 644 $(SRCDIR)/include/*.h $(DESTDIR)/usr/include/$(APPNAME)/
+
+	# The extension's RUNPATH points at the developer checkout; in the
+	# package it sits in the Python package and the SDK libraries are on the
+	# default library path in /usr/lib.
+	patchelf --remove-rpath $(DESTDIR)$(APPDIR)/camvistra/$(notdir $(NATIVE))
+	# The SDK libraries also carry RUNPATHs into the build machines' home
+	# folders (/home/<user>/.../build/lib/...); they all sit in /usr/lib.
+	for lib in $(DESTDIR)/usr/lib/lib*.so; do patchelf --remove-rpath $$lib; done
+
+	# Launchers, desktop entry and icon
+	install -m 755 debian/camvistra-launcher $(DESTDIR)/usr/bin/camvistra
+	install -m 755 debian/camvistra-root-launcher $(DESTDIR)/usr/bin/camvistra-root-launcher
+	install -m 644 debian/camvistra.desktop $(DESTDIR)/usr/share/applications/camvistra.desktop
+	install -m 644 $(SRCDIR)/CamVistra/View/icons/icon.png $(DESTDIR)/usr/share/pixmaps/camvistra.png
+
+# The prebuilt binaries are stripped as-is; there are no debug symbols to split.
+override_dh_dwz:
+
+override_dh_shlibdeps:
+	dh_shlibdeps -l$(DESTDIR)/usr/lib
+
+# Byte-compile the private package and derive the python3 version dependency
+# from the extension's ABI tag.
+override_dh_python3:
+	dh_python3 $(APPDIR)

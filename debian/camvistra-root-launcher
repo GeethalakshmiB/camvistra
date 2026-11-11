@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Capture the desktop user's PulseAudio/PipeWire-Pulse connection details
+# before sudo changes the process identity and environment.
+user_uid="$(id -u)"
+user_runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$user_uid}"
+user_config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+exec sudo -- env -u XDG_RUNTIME_DIR \
+    PULSE_SERVER="unix:$user_runtime_dir/pulse/native" \
+    PULSE_COOKIE="$user_config_dir/pulse/cookie" \
+    QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox" \
+    /usr/bin/camvistra "$@"

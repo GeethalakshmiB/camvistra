@@ -1,0 +1,67 @@
+Source: camvistra
+Section: video
+Priority: optional
+Maintainer: CamVistra <TrueSight@e-consystems.com>
+# The lib*-dev entries are not compiled against: dh_shlibdeps needs the
+# libraries the prebuilt SDK libraries link to, to work out the runtime Depends.
+Build-Depends: debhelper (>= 11.0.0),
+               dh-python,
+               python3,
+               patchelf,
+               libavcodec-dev,
+               libavformat-dev,
+               libavutil-dev,
+               libswscale-dev,
+               libcurl4-openssl-dev,
+               libpulse-dev,
+               libturbojpeg0-dev,
+               libudev-dev,
+               libxml2-dev,
+               libglib2.0-dev [arm64],
+               libgstreamer1.0-dev [arm64],
+               libgstreamer-plugins-base1.0-dev [arm64]
+Standards-Version: 4.6.0
+Homepage: http://www.e-consystems.com/opensource-linux-webcam-software-application.asp
+Rules-Requires-Root: no
+
+Package: camvistra
+# arm64: add back once Source/lib/Ubuntu_24.04/arm64 exists
+Architecture: amd64
+Conflicts: truesight
+Replaces: truesight
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends},
+         sudo,
+         iputils-ping,
+         python3-pyqt5,
+         python3-pyqt5.qtquick,
+         python3-pyqt5.qtwebengine,
+         python3-pyqt5.qtchart,
+         python3-opengl,
+         python3-numpy,
+         python3-psutil,
+         libgl1,
+         libegl1,
+         libqt5svg5,
+         qml-module-qtquick2,
+         qml-module-qtquick-window2,
+         qml-module-qtquick-layouts,
+         qml-module-qtquick-controls,
+         qml-module-qtquick-controls2,
+         qml-module-qtquick-dialogs,
+         qml-module-qtquick-privatewidgets,
+         qml-module-qt-labs-platform,
+         qml-module-qtwebengine,
+         gstreamer1.0-plugins-base,
+         gstreamer1.0-plugins-good,
+         gstreamer1.0-plugins-bad,
+         gstreamer1.0-plugins-ugly,
+         gstreamer1.0-libav,
+         fonts-noto,
+         nvidia-l4t-gstreamer [arm64]
+Description: CamVistra camera application for Linux (PyQt5)
+ CamVistra is a camera application for Linux developed by e-con Systems.
+ It supports e-con USB, network (ONVIF/RTSP) and Wi-Fi cameras with
+ preview, still capture, video recording, histogram and diagnostics.
+ .
+ This package contains the PyQt5 application and the camera SDK
+ libraries it uses.

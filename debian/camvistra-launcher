@@ -1,0 +1,9 @@
+#!/bin/sh
+# Starts CamVistra, the PyQt5 camera application.
+# The Python package and its native extension are in /usr/lib/camvistra;
+# the SDK libraries they load are in /usr/lib.
+
+APPDIR=/usr/lib/camvistra
+
+export PYTHONPATH="$APPDIR${PYTHONPATH:+:$PYTHONPATH}"
+exec /usr/bin/python3 -m camvistra "$@"
