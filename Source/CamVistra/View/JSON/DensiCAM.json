@@ -1,0 +1,380 @@
+[
+  {
+    "label": "LED",
+    "toolTip": "LED",
+    "id": "led",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "On",
+        "value": "radioButton",
+        "id": "ledOn",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "ledMode",
+        "visible": true
+      },
+      {
+        "label": "Off",
+        "value": "radioButton",
+        "id": "ledOff",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "ledMode",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Scene Mode",
+    "toolTip": "Scene Mode",
+    "id": "sceneMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Intra Oral",
+        "value": "radioButton",
+        "id": "intraOralMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "sceneModes",
+        "visible": true
+      },
+      {
+        "label": "Face",
+        "value": "radioButton",
+        "id": "faceMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "sceneModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Flip Control",
+    "toolTip": "Flip Control",
+    "id": "flipControl",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "horizontal",
+        "label": "Horizontal",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      },
+      {
+        "id": "vertical",
+        "label": "Vertical",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Denoise Strength",
+    "toolTip": "Denoise Strength",
+    "id": "denoiseStrength",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "denoise",
+        "value": "slider",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Pixel Target Value",
+    "toolTip": "Pixel Target Value",
+    "id": "pixelTarget",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "pixelTargetVal",
+        "value": "slider",
+        "min": 0,
+        "max": 512,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Brightness",
+    "toolTip": "Brightness",
+    "id": "brightness",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "brightness_s",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Contrast",
+    "toolTip": "Contrast",
+    "id": "contrast",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "contrast_s",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Saturation",
+    "toolTip": "Saturation",
+    "id": "c_saturation",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "saturation",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Sharpness",
+    "toolTip": "Sharpness",
+    "id": "sharpness",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "sharpness_s",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Gamma",
+    "toolTip": "Gamma",
+    "id": "gamma",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "gamma_s",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Gain",
+    "toolTip": "Gain",
+    "id": "gain",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "gain_s",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Exposure",
+    "toolTip": "Exposure",
+    "id": "exposure",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "exposureMode",
+        "label": "Exposure Mode: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "AUTO"
+          },
+          {
+            "label1": "MANUAL"
+          }
+        ]
+      },
+      {
+        "id": "exposureTime",
+        "label": "Exposure Time: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "White Balance",
+    "toolTip": "White Balance",
+    "id": "whiteBalance",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "id": "wbMode",
+        "label": "WB Mode",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "AUTO"
+          },
+          {
+            "label1": "MANUAL"
+          }
+        ]
+      },
+      {
+        "id": "wbValue",
+        "label": "White Balance: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Image capture",
+    "toolTip": "Image Capture",
+    "id": "imageCapture",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Button capture software",
+        "value": "radioButton",
+        "id": "buttonSw",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "captureMode",
+        "visible": true
+      },
+      {
+        "label": "Twain / CamVistra ",
+        "value": "radioButton",
+        "id": "twainOrCamVistra",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "captureMode",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": "serialNum",
+    "label": "Serial Number",
+    "toolTip": "Read Serial Number",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "serialNumber",
+        "label": "Serial Num: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "firmwareVersion",
+    "label": "Firmware Version",
+    "toolTip": "Read Firmware Version",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "firmwareVer",
+        "label": "F/w version : ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "updateDefault",
+    "value": "button",
+    "name": "Default",
+    "enabled": true,
+    "visible": true
+  },
+  {
+    "id": "saveConfig",
+    "value": "button",
+    "name": "Save Configuration",
+    "enabled": true,
+    "visible": true
+  }
+]

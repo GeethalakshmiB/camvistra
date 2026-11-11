@@ -1,0 +1,2794 @@
+[
+    {
+        "id": "cameraSettings",
+        "tooltip": "Camera Settings - Allows you to customize  camera-related functionalities such as brightness, contrast, saturation, exposure, white-balance and wdr",
+        "h1" : "Camera Settings",
+        "content1" : "The Camera Settings Configuration allows you to customize  camera-related functionalities such as brightness, contrast, saturation, exposure, white-balance and wdr",
+        "h2" : "Structure and Enum used: ",
+        "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current and step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty {
+	PropertyBrightness = 0,
+	PropertySaturation,
+	PropertyContrast,
+	PropertySharpness,
+	PropertyExposureAuto,
+	PropertyExposureTime,
+	PropertyAntiFlicker,
+	PropertyMaxExposureTime,
+	PropertyMinExposureTime,
+	PropertyGain,
+	PropertyWhiteBalanceAuto,
+	PropertyWhitBalanceYrGain,
+	PropertyWhitBalanceYbGain,
+	PropertyWDR,
+	PropertyBackLightCompensation
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera Control values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "brightness",
+        "tooltip": "Brightness - Allows you to customize brightness of the camera",
+        "h1" : "Brightness",
+        "content1" : " Allows you to customize brightness of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's brightness when the control id is passed as PropertyBrightness",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyBrightness;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's brightness when the control id is passed as PropertyBrightness",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyBrightness;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },  
+    {
+        "id": "brightness_s",
+        "tooltip": "Brightness - Allows you to customize brightness of the camera",
+        "h1" : "Brightness",
+        "content1" : " Allows you to customize brightness of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's brightness when the control id is passed as PropertyBrightness",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyBrightness;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's brightness when the control id is passed as PropertyBrightness",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyBrightness;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    }, 
+    {
+        "id": "c_saturation",
+        "tooltip": "Saturation - Allows you to customize saturation of the camera",
+        "h1" : "Saturation",
+        "content1" : " Allows you to customize saturation of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's saturation when the control id is passed as PropertySaturation",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertySaturation;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's saturation when the control id is passed as PropertySaturation",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertySaturation;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "saturation",
+        "tooltip": "Saturation - Allows you to customize saturation of the camera",
+        "h1" : "Saturation",
+        "content1" : " Allows you to customize saturation of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's saturation when the control id is passed as PropertySaturation",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertySaturation;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's saturation when the control id is passed as PropertySaturation",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertySaturation;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "contrast",
+        "tooltip": "Contrast - Allows you to customize contrast of the camera",
+        "h1" : "Contrast",
+        "content1" : " Allows you to customize contrast of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's contrast when the control id is passed as PropertyContrast",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyContrast;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's contrast when the control id is passed as PropertyContrast",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyContrast;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "contrast_s",
+        "tooltip": "Contrast - Allows you to customize contrast of the camera",
+        "h1" : "Contrast",
+        "content1" : " Allows you to customize contrast of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's contrast when the control id is passed as PropertyContrast",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyContrast;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's contrast when the control id is passed as PropertyContrast",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyContrast;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "sharpness",
+        "tooltip": "Sharpness - Allows you to customize sharpness of the camera",
+        "h1" : "Sharpness",
+        "content1" : " Allows you to customize sharpness of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's sharpness when the control id is passed as PropertySharpness",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertySharpness;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's sharpness when the control id is passed as PropertySharpness",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertySharpness;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "sharpness_s",
+        "tooltip": "Sharpness - Allows you to customize sharpness of the camera",
+        "h1" : "Sharpness",
+        "content1" : " Allows you to customize sharpness of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's sharpness when the control id is passed as PropertySharpness",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertySharpness;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's sharpness when the control id is passed as PropertySharpness",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertySharpness;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "exposure",
+        "tooltip": "Exposure - Allows you to customize exposure mode, anti-flicker and exposure time of the camera",
+        "h1" : "Exposure",
+        "content1" : " Allows you to customize exposure mode, anti-flicker and exposure time of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's exposure mode when the control id is passed as PropertyExposureAuto and exposure time when the control id is passed as PropertyExposureTime
+anti-flicker when the control id is passed as PropertyAntiFlicker, max exposure time when the control id is passed as PropertyMaxExposureTime and min exposure time when the control id is passed as PropertyMinExposureTime",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyExposureAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's exposure mode when the control id is passed as PropertyExposureAuto and exposure time when the control id is passed as PropertyExposureTime
+anti-flicker when the control id is passed as PropertyAntiFlicker, max exposure time when the control id is passed as PropertyMaxExposureTime and min exposure time when the control id is passed as PropertyMinExposureTime",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyExposureAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "exposureMode",
+        "tooltip": "Exposure Mode - Allows you to customize exposure mode of the camera to either AUTO or MANUAL",
+        "h1" : "Exposure Mode",
+        "content1" : " Allows you to customize exposure mode of the camera to either AUTO or MANUAL",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's exposure mode when the control id is passed as PropertyExposureAuto",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyExposureAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's exposure mode when the control id is passed as PropertyExposureAuto",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyExposureAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "antiFlicker",
+        "tooltip": "Ant-flicker - Allows you to customize anti-flicker mode of the camera",
+        "h1" : "Anti-Flicker",
+        "content1" : "  Allows you to customize anti-flicker mode of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's ant-flicker mode when the control id is passed as PropertyAntiFlicker",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyAntiFlicker;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's anti-flicker mode when the control id is passed as PropertyAntiFlicker",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyAntiFlicker;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "exposureTime",
+        "tooltip": "Exposure Time - Allows you to customize exposureTime of the camera when the exposure mode is MANUAL",
+        "h1" : "Exposure Time",
+        "content1" : " Allows you to customize exposureTime of the camera when the exposure mode is MANUAL",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's exposureTime when the exposure mode is MANUAL and the control id is passed as PropertyExposureTime",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's exposureTime when the exposure mode is MANUAL and the control id is passed as PropertyExposureTime",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "max_exposure_s",
+        "tooltip": "Max Exposure Time - Allows you to customize maximum exposureTime of the camera when the exposure mode is AUTO",
+        "h1" : "Max Exposure Time",
+        "content1" : " Allows you to customize maximum exposureTime of the camera when the exposure mode is AUTO",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's maximum exposureTime when the exposure mode is AUTO and the control id is passed as PropertyMaxExposureTime",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyMaxExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's maximum exposureTime when the exposure mode is AUTO and the control id is passed as PropertyMaxExposureTime",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyMaxExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "min_exposure_s",
+        "tooltip": "Min Exposure Time - Allows you to customize minimum exposureTime of the camera when the exposure mode is AUTO",
+        "h1" : "Min Exposure Time",
+        "content1" : " Allows you to customize minimum exposureTime of the camera when the exposure mode is AUTO",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's minimum exposureTime when the exposure mode is AUTO and the control id is passed as PropertyMinExposureTime",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyMinExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's minimum exposureTime when the exposure mode is AUTO and the control id is passed as PropertyMinExposureTime",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyMinExposureTime;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "gain_s",
+        "tooltip": "Gain - Allows you to customize gain of the camera when the exposure mode is AUTO",
+        "h1" : "Gain",
+        "content1" : " Allows you to customize gain of the camera when the exposure mode is AUTO",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's gain when the exposure mode is AUTO and the control id is passed as PropertyGain",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the Camera's gain when the exposure mode is AUTO and the control id is passed as PropertyGain",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "whiteBalance",
+        "tooltip": "White Balance - Allows you to customize white balance of the camera",
+        "h1" : "White Balance",
+        "content1" : " Allows you to customize white balance of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's white balance mode when control id is passed as PropertyWhiteBalanceAuto, 
+red gain when control id is passed as PropertyWhitBalanceYrGain and blue gain when control id is passed as PropertyWhitBalanceYbGain",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWhiteBalanceAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's white balance mode when control id is passed as PropertyWhiteBalanceAuto, 
+red gain when control id is passed as PropertyWhitBalanceYrGain and blue gain when control id is passed as PropertyWhitBalanceYbGain",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWhiteBalanceAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "wbMode",
+        "tooltip": "White Balance Mode - Allows you to customize white balance mode of the camera either to AUTO or MANUAL",
+        "h1" : "White Balance Mode",
+        "content1" : " Allows you to customize white balance mode of the camera either to AUTO or MANUAL",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's white balance mode when control id is passed as PropertyWhiteBalanceAuto",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWhiteBalanceAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's white balance mode when control id is passed as PropertyWhiteBalanceAuto",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWhiteBalanceAuto;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "bGain",
+        "tooltip": "Blue Gain - Allows you to customize blue gain when the white balance of the camera is set to MANUAL mode",
+        "h1" : "Blue Gain",
+        "content1" : " Allows you to customize blue gain when the white balance of the camera is set to MANUAL mode",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's blue gain when the white balance mode set to Manual and control id is passed as PropertyWhitBalanceYbGain",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWhitBalanceYbGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  blue gain when the white balance mode set to Manual and control id is passed as PropertyWhitBalanceYbGain",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWhitBalanceYbGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "rGain",
+        "tooltip": "Red Gain - Allows you to customize red gain when the white balance of the camera is set to MANUAL mode",
+        "h1" : "Red Gain",
+        "content1" : " Allows you to customize red gain when the white balance of the camera is set to MANUAL mode",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's red gain when the white balance mode set to Manual and control id is passed as PropertyWhitBalanceYrGain",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWhitBalanceYrGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  red gain when the white balance mode set to Manual and control id is passed as PropertyWhitBalanceYrGain",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWhitBalanceYrGain;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "hdrMode",
+        "tooltip": "HDR Mode- Allows you to customize high dynamic range of the camera",
+        "h1" : "HDR Mode",
+        "content1" : " Allows you to customize high dynamic range of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's high dynamic range when control id is passed as PropertyWDR",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWDR;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  high dynamic range when control id is passed as PropertyWDR",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWDR;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "hdrMode_d",
+        "tooltip": "HDR Mode- Allows you to customize high dynamic range of the camera",
+        "h1" : "HDR Mode",
+        "content1" : " Allows you to customize high dynamic range of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's high dynamic range when control id is passed as PropertyWDR",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyWDR;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  high dynamic range when control id is passed as PropertyWDR",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyWDR;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "backlightCompensation",
+        "tooltip": "Backlight Compensation - Allows you to customize backlight compensation of the camera",
+        "h1" : "Backlight Compensation",
+        "content1" : " Allows you to customize backlight compensation of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's backlight compensation when control id is passed as PropertyBackLightCompensation",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyBackLightCompensation;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  backlight compensation when control id is passed as PropertyBackLightCompensation",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyBackLightCompensation;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "backlightCompensation_d",
+        "tooltip": "Backlight Compensation - Allows you to customize backlight compensation of the camera",
+        "h1" : "Backlight Compensation",
+        "content1" : " Allows you to customize backlight compensation of the camera",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The PropertyRange structure holds information about a controls value range, including its ID, minimum, maximum, current, step, and default values, as well as the control mode (auto or manual). 
+2. The CameraProperty Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct PropertyRange
+    {
+        int id;
+        int min;
+        int max;
+        int cur;
+        int step;
+        int defaultVal;
+        int automan;
+    };",
+        "struct2" : "enum CameraProperty 
+    {
+        PropertyBrightness = 0,
+        PropertySaturation,
+        PropertyContrast,
+        PropertySharpness,
+        PropertyExposureAuto,
+        PropertyExposureTime,
+        PropertyAntiFlicker,
+        PropertyMaxExposureTime,
+        PropertyMinExposureTime,
+        PropertyGain,
+        PropertyWhiteBalanceAuto,
+        PropertyWhitBalanceYrGain,
+        PropertyWhitBalanceYbGain,
+        PropertyWDR,
+        PropertyBackLightCompensation
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCameraControlProperty(CameraProperty gControlID, PropertyRange* gControlValue)",
+        "getAPIDes" : "This function will get the Camera's backlight compensation when control id is passed as PropertyBackLightCompensation",
+        "getAPICode" : "PropertyRange gControlValue;
+CameraProperty gControlID = PropertyBackLightCompensation;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCameraControlProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCameraControlProperty(CameraProperty gControlID, const std::string& currentValue)",
+        "setAPIDes" : "This function will set the  Camera's  backlight compensation when control id is passed as PropertyBackLightCompensation",
+        "setAPICode" : "const std::string currentValue;
+CameraProperty gControlID = PropertyBackLightCompensation;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetCameraControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id": "vidProperties",
+        "tooltip": "Video Properties - Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id" : "format",
+        "tooltip" : "The format field sets current stream format.",
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id" : "resolution",
+        "tooltip" : "The resolution field sets current stream resolution.", 
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id" : "FPS",
+        "tooltip" : "The FPS field sets current stream frame rate.",
+        
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id" : "codecProfile",
+        "tooltip" : "The Codec Profile field sets the codec profile for the current format.",
+        
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },
+    {
+        "id" : "updateVidProperty",
+        "tooltip" : "Saves the updated video property values.",
+        
+        "h1" : "Video Properties ",
+        "content1" : " Allows you to customize video format, resolution , frame rate and the codec profile",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The ImageProperty structure holds information about format, resolution and frameRate.",
+        "struct1": "struct ImageProperty
+    {
+        char Compression[5];
+        int width;
+        int height;
+        int fps;
+    };",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetCurrentImageProperty(ImageProperty* imgProp), Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) and Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)",
+        "getAPIDes" : "Result GetCurrentImageProperty(ImageProperty* imgProp) - This function will get the current stream format, resolution and frame rate of the stream
+        Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr) - This function retrieves the supported stream formats, resolutions and frame rates. When bitrateRanges is not null, it also stores the minimum and maximum bitrate for each encoding in bits per second
+        Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat) - This function will get the supported codec profiles along with current profile of the current format",
+        "getAPICode" : "//Result GetImageProperty(std::list<ImageProperty>& imageProperties, std::map<std::string, QualitySettingsRange>* bitrateRanges = nullptr)
+std::list<ImageProperty> imageProperties;
+std::map<std::string, QualitySettingsRange> bitrateRanges;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(onvif->GetImageProperty(imageProperties, &bitrateRanges) != Result::Ok)
+{
+        return Result::failed;
+}
+        
+//Result GetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result GetConfigProfile(std::vector<std::string>& allProfiles, std::string& currentProfile, std::string& currentFormat)
+std::vector<std::string> allProfiles, std::string currentProfile, std::string currentFormat;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetConfigProfile(allProfiles,currentProfile, currentFormat))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetCurrentImageProperty(ImageProperty* imgProp) and Result SetConfigProfile(const std::string& currentProfile)",
+        "setAPIDes" : "Result SetCurrentImageProperty(ImageProperty* imgProp) - This function will set the current stream format, resolution and frame rate of the stream
+        Result SetConfigProfile(const std::string& currentProfile) - This function will set the codec profile for the current format",
+        "setAPICode" : "//Result SetCurrentImageProperty(ImageProperty* imgProp)
+ImageProperty imgProp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetCurrentImageProperty(&imgProp))
+{
+        return Result::failed;
+}
+        
+//Result SetConfigProfile(const std::string& currentProfile)
+std::string currentProfile;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->SetConfigProfile(currentProfile))
+{
+        return Result::failed;
+}"   
+    },   
+    {
+        "id" : "deviceInfo",
+        "tooltip" : "Device Information.",        
+        "h1" : "Device Information ",
+        "content1" : " The Device Information displays the discovered device information including details such as Manufacturer, Firmware Version and name.",
+        "h2" : "Structure and Enum used: ",
+        "content2" : "The DeviceInformation structure stores essential details about a device, including its manufacturer, firmware version and name. It helps in identifying and troubleshooting device-related issues.",
+        "struct1": "struct DeviceInfo
+{
+        char manufacturer[128];// Manufacturer of the device
+        char firmwareVersion[128];// Firmware version of the device
+        char name[128];// Name of the device
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result getDeviceInformation(struct DeviceInfo* deviceInfo)",
+        "getAPIDes" : "This function will get the deviceInformation from the SHELFVista camera.",
+        "getAPICode" : "DeviceInfo deviceInfo;
+std::unique_ptr< IShelfVistaOnvifClient > onvif =
+getShelfVistaOnvifInstance ();
+if(!onvif->getDeviceInformation (&deviceInfo))
+{
+        return Result::failed;
+}"   
+    },  
+    {
+        "id" : "qualitySettings",
+        "tooltip" : "Updates the quality settings of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "gopSize",
+        "tooltip" : "Controls the number of frames between I-frames to adjust video quality and compression.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "gopSize",
+        "tooltip" : "Controls the number of frames between I-frames to adjust video quality and compression.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "gopSize_s",
+        "tooltip" : "Controls the number of frames between I-frames to adjust video quality and compression.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateGop",
+        "tooltip" : "Updates the GOP Size value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "rcType",
+        "tooltip" : "Specifies the rate control type used for managing video bitrate.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "rcType_d",
+        "tooltip" : "Specifies the rate control type used for managing video bitrate.",      
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateRcType",
+        "tooltip" : "Updates the RC Type value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "bitRate",
+        "tooltip" : "Updates the bitrate value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "bitrate_s",
+        "tooltip" : "Updates the bitrate value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateBitrate",
+        "tooltip" : "Updates the Bitrate value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "qp",
+        "tooltip" : "Updates the Quality Parameter value of the video stream.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "iFrameQp",
+        "tooltip" : "Updates the video quality by adjusting the I-frame QP value.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "iFrameQp_s",
+        "tooltip" : "Updates the video quality by adjusting the I-frame QP value",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "minQp",
+        "tooltip" : "Sets the minimum QP value to control the lowest allowed compression level.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "minQp_s",
+        "tooltip" : "Sets the minimum QP value to control the lowest allowed compression level.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "maxQp",
+        "tooltip" : "Sets the maximum QP value to control the highest allowed compression level.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "maxQp_s",
+        "tooltip" : "Sets the maximum QP value to control the highest allowed compression level.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateQp",
+        "tooltip" : "Sets the maximum QP value to control the highest allowed compression level, minimum QP value to control the lowest allowed compression level and I-frame QP value to adjust the video quality.",     
+        "h1" : "Quality Settings ",
+        "content1" : " Allows you to customize gopSize, rcMode, bitrate, QParamters such as minQP, maxQP and i-frame of the video stream.",
+        "h2" : "Structure and Enum used: ",
+      "content2": "1. The QualitySettingsRange structure holds information about a control's value range, including its ID, minimum, maximum and current value. 
+2. The QualitySettings Enum indicates the specific control for which value has to be extracted.",
+        "struct1": "struct QualitySettingsRange {
+	int id{};
+	int current{};
+	int min{};
+	int max{};
+};",
+        "struct2" : "typedef enum {
+	GOPSIZE,
+	VIDEO_BITRATE_MODE,
+	BITRATE,
+	I_FRAME_QP,
+	MIN_QP,
+	MAX_QP
+} QualitySettings;",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetQualityContolProperty(QualitySettings setting, QualitySettingsRange* range)",
+        "getAPIDes" : "This function will get the Quality Control values of the respective control id passed",
+        "getAPICode" : "PropertyRange gControlValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetQualityContolProperty(gControlID, &gControlValue))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetQualityControlProperty(QualitySettings setting, int newValue)",
+        "setAPIDes" : "This function will set the quality control property values of the respective control id passed",
+        "setAPICode" : "const std::string currentValue;
+QualitySettings gControlID = GOPSIZE;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetQualityControlProperty(gControlID, currentValue))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "networkSettings",
+        "tooltip": "Allows you to configure the IP address, gateway, subnet mask, and NTP settings of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "dhcpMode",
+        "tooltip": "Allows you to configure the IP address, gateway, subnet mask, and NTP settings of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "ipAddress",
+        "tooltip": "Allows you to configure the IP address of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "subnetMask",
+        "tooltip": "Allows you to configure the subnet mask of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "gateway",
+        "tooltip": "Allows you to configure the  gateway of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateNetworkSettings",
+        "tooltip": "Allows you to configure the IP address, gateway, subnet mask, and NTP settings of the connected device.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "getAPIDes": "This function retrieves the current network configuration of the device.",
+        "getAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNetworkInterfaceDetails(NetworkInterface* netInterface)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "NetworkInterface netInterface;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNetworkInterfaceDetails(&netInterface))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "ntpField",
+        "tooltip": "Allows you to configure the NTP server address for time synchronization.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNTP(std::string& ntpIp)",
+        "getAPIDes": "This function retrieves the current NTP server address configured on the device.",
+        "getAPICode" : "string ntpIp
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNTP(&ntpIp))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNtp(std::string& ntpIp)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "std::string ntpIp;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNtp(&ntpIp))
+{
+        return Result::failed;
+}"
+    },
+    {
+        "id" : "updateNtp",
+        "tooltip": "Allows you to configure the NTP server address for time synchronization.",
+        "h1": "Network Settings",
+        "content1": "Network settings allow you to configure the device’s IP address, gateway, subnet mask, and NTP server.",
+        "h2": "Structure Used:",
+        "content2": "1. The NetworkInterface structure holds information about the device's network configuration, including DHCP mode, IP address, subnet mask, and gateway",
+        "struct1": "struct NetworkInterface {
+	bool  DHCP;      
+	char ipAddress[32];    // Static IP Address
+	char subnetMask[32];   // Subnet Mask
+	char gateway[32];      // Default Gateway
+};",
+        "h3" : "API :",
+        "getAPIHeading" : "Result GetNTP(std::string& ntpIp)",
+        "getAPIDes": "This function retrieves the current NTP server address configured on the device.",
+        "getAPICode" : "std::string ntpIp;
+std::unique_ptr< IRoutecamOnvifClient > onvif =   getRoutecamOnvifInstance ();
+if(!onvif->GetNTP(&ntpIp))
+{
+        return Result::failed;
+}",
+        "setAPIHeading" : "Result SetNtp(std::string& ntpIp)",
+        "setAPIDes" : "This function sets the current network configuration of the device.",
+        "setAPICode" : "std::string ntpIp;
+std::unique_ptr< IRoutecamOnvifClient > onvif = getRoutecamOnvifInstance ();
+if(!onvif->SetNtp(&ntpIp))
+{
+        return Result::failed;
+}"
+    }
+]

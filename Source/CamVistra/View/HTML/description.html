@@ -1,0 +1,106 @@
+<!-- description.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            color: white;
+            background-color: #0b1723;
+            font-size: 10pt;
+            margin: 8px;
+            overflow-x: hidden;
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+        html, body {
+            max-width: 100%;
+        }
+        p, h1, h2, h3, h4, .section {
+            max-width: calc(100% - 5px);
+            white-space: normal;
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+        h1, h2, h3 {
+            color: white;
+        }
+        pre {
+            background-color: #cfcfcf;
+            color: black;
+            padding: 10px;
+            overflow-x: hidden;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #292922;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #19699e;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2087cc;
+        }
+        .section {
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <!-- start:h1 -->
+        <h3>{{h1}}</h3>
+        <!-- end:h1 -->
+
+        <!-- start:content1 -->
+        <p>{{content1}}</p>
+        <!-- end:content1 -->
+    </div> 
+
+    <div class="section">
+        <!-- start:h3 -->
+        <h3>{{h3}}</h3>
+        <!-- end:h3 -->
+    
+        <!-- start:h2 -->
+        <h4>{{h2}}</h4>
+        <!-- end:h2 -->
+
+        <!-- start:content2 -->
+        <p>{{content2}}</p>
+        <!-- end:content2 -->
+    
+        <!-- start:struct1 -->
+        <pre>{{struct1}}</pre>
+        <!-- end:struct1 -->
+
+        <!-- start:struct2 -->
+        <pre>{{struct2}}</pre>
+        <!-- end:struct2 -->
+
+        <!-- start:getAPIHeading -->
+        <h4>{{getAPIHeading}}</h4>
+        <p>{{getAPIDes}}</p>
+        <pre>{{getAPICode}}</pre>
+        <!-- end:getAPIHeading -->
+
+        <!-- start:setAPIHeading -->
+        <h4>{{setAPIHeading}}</h4>
+        <p>{{setAPIDes}}</p>
+        <pre>{{setAPICode}}</pre>
+        <!-- end:setAPIHeading -->
+
+    </div>
+
+</body>
+</html>
+

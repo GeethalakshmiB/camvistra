@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 25 25"
+    width="45"
+    height="45">
+
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: rgb(255, 255, 255);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8px;
+      }
+    </style>
+  </defs>
+
+  <!-- Folder back -->
+  <path
+    class="cls-1"
+    d="M3.5 8.5
+       h6.0
+       l1.6 1.6
+       h10.4
+       a1.1 1.1 0 0 1 1.1 1.1
+       v2.0" />
+
+  <!-- Folder front (open flap) -->
+  <path
+    class="cls-1"
+    d="M2.8 12.2
+       h19.4
+       a1.1 1.1 0 0 1 1.0 1.3
+       l-1.4 6.0
+       a1.1 1.1 0 0 1-1.0.9
+       H4.2
+       a1.1 1.1 0 0 1-1.0-.9
+       l-1.2-6.0
+       a1.1 1.1 0 0 1 1.0-1.3
+       Z" />
+</svg>

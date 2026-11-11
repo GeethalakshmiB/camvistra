@@ -1,0 +1,10 @@
+[
+    {
+      "id": "noHid",
+      "label": "No extension available for the selected camera",
+      "toolTip": "No extension available for the selected camera",
+      "expanded": false,
+      "visible": true
+    }
+]
+

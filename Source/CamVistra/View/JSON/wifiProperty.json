@@ -1,0 +1,1097 @@
+[
+  {
+    "label": "Device Configuration",
+    "toolTip": "Configure device settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "WiFi Configuration",
+        "toolTip": "WiFi settings",
+        "id": "WiFiMode",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "label": "AP Mode",
+            "value": "radioButton",
+            "id": "mode1",
+            "default": true,
+            "checked": false,
+            "enabled": true,
+            "identification": "WiFiMode",
+            "onChange": "handleWiFiModeSelection",
+            "visible": true,
+            "expanded": false,
+            "children": [
+              {
+                "id": "AP_SSID",
+                "label": "SSID",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "id": "AP_Password",
+                "label": "Password",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "id": "AP_SecurityType",
+                "label": "Security Type",
+                "value": "dropBox",
+                "visible": true,
+                "enabled": true,
+                "children_drop": [
+                  {
+                    "label1": "WPA2"
+                  },
+                  {
+                    "label1": "WPA3"
+                  }
+                ]
+              },
+              {
+                "id": "AP_WifiBand",
+                "label": "WiFi Band",
+                "value": "dropBox",
+                "visible": true,
+                "children_drop": [
+                  {
+                    "label1": "2.4 GHz"
+                  },
+                  {
+                    "label1": "5 GHz"
+                  }
+                ]
+              },
+              {
+                "id": "AP_Channel",
+                "label": "Channel",
+                "value": "dropBox",
+                "children_drop": "getChannelOptions(\"2.4 GHz\")",
+                "visible": true
+              },
+              {
+                "id": "updateApConfig",
+                "value": "button",
+                "name": "Update",
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "label": "STA Mode",
+            "value": "radioButton",
+            "id": "mode2",
+            "default": false,
+            "checked": true,
+            "enabled": true,
+            "identification": "WiFiMode",
+            "onChange": "handleWiFiModeSelection",
+            "visible": true,
+            "expanded": true,
+            "children": [
+              {
+                "id": "STA_SSID",
+                "label": "SSID",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "STA_Password",
+                "label": "Password",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "STA_IPMode",
+                "label": "IP Mode",
+                "value": "dropBox",
+                "enabled": true,
+                "visible": false,
+                "children_drop": [
+                  {
+                    "label1": "STATIC"
+                  },
+                  {
+                    "label1": "DHCP"
+                  }
+                ]
+              },
+              {
+                "id": "STA_IPAddress",
+                "label": "IP Address",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "STA_Subnet",
+                "label": "Subnet Mask",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "STA_Gateway",
+                "label": "Gateway",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "STA_DNS",
+                "label": "DNS",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "updateStaConfig",
+                "value": "button",
+                "name": "Update",
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Server Configuration",
+        "toolTip": "Server settings",
+        "id": "ServerMode",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "label": "Local",
+            "value": "radioButton",
+            "id": "serverLocal",
+            "default": true,
+            "checked": true,
+            "enabled": true,
+            "onChange": "handleServerModeSelection",
+            "identification": "ServerMode",
+            "expanded": true,
+            "visible": true,
+            "children": [
+              {
+                "id": "local_IPAddress",
+                "label": "IP Address",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "id": "local_Port",
+                "label": "Port",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": true
+              },
+              {
+                "id": "updateLocalConfig",
+                "value": "button",
+                "name": "Update",
+                "enabled": true,
+                "visible": true
+              }
+            ]
+          },
+          {
+            "label": "Cloud",
+            "value": "radioButton",
+            "id": "serverCloud",
+            "default": false,
+            "checked": false,
+            "enabled": true,
+            "onChange": "handleServerModeSelection",
+            "identification": "ServerMode",
+            "expanded": false,
+            "visible": true,
+            "children": [
+              {
+                "id": "cloud_Provider",
+                "label": "Provider",
+                "value": "dropBox",
+                "enabled": true,
+                "visible": true,
+                "children_drop": [
+                  { "label1": "Amazon" },
+                  { "label1": "Google" }
+                ]
+              },
+              {
+                "id": "cloudAccessKey",
+                "label": "Access Key",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "cloudSecretKey",
+                "label": "Secret Key",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "cloudRegion",
+                "label": "Region",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "cloudBucket",
+                "label": "Bucket",
+                "value": "textBox",
+                "text": "",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "id": "updateCloudConfig",
+                "value": "button",
+                "name": "Update",
+                "enabled": true,
+                "visible": false
+              },
+              {
+                "label": "HMAC",
+                "value": "radioButton",
+                "id": "hmacMode",
+                "default": true,
+                "checked": true,
+                "enabled": true,
+                "identification": "accountType",
+                "visible": true,
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "cloud_AccessKey",
+                    "label": "Access Key",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "cloud_SecretKey",
+                    "label": "Secret Key",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "cloud_Region",
+                    "label": "Region",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "cloud_Bucket",
+                    "label": "Bucket",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "updateHMACConfig",
+                    "value": "button",
+                    "name": "Update",
+                    "enabled": true,
+                    "visible": false
+                  }
+                ]
+              },
+              {
+                "label": "SA",
+                "value": "radioButton",
+                "id": "saMode",
+                "default": false,
+                "checked": false,
+                "enabled": false,
+                "identification": "accountType",
+                "visible": true,
+                "expanded": false,
+                "children": [
+                  {
+                    "id": "bucketNameSA",
+                    "label": "Bucket Name:",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "file",
+                    "label": "File: ",
+                    "name": "Upload file",
+                    "value": "button",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "fileName",
+                    "label": "File name:",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": false,
+                    "visible": false
+                  },
+                  {
+                    "id": "updateSAConfig",
+                    "value": "button",
+                    "name": "Update",
+                    "enabled": true,
+                    "visible": false
+                  }
+                ]
+              },
+              {
+                "label": "SAS Token Server Config",
+                "value": "radioButton",
+                "id": "AzureSAS",
+                "default": true,
+                "checked": true,
+                "enabled": true,
+                "identification": "accountType1",
+                "visible": false,
+                "expanded": true,
+                "children": [
+                  {
+                    "id": "accountName_sas",
+                    "label": "Account Name",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "containerName_sas",
+                    "label": "Container Name",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "storageKey_sas",
+                    "label": "Storage Key: ",
+                    "name": "Upload file",
+                    "value": "button",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "fileName_sas",
+                    "label": "File name:",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": false,
+                    "visible": false
+                  },
+                  {
+                    "id": "downloadSasKeyConfig",
+                    "value": "button",
+                    "name": "Download key",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "updateSASConfig",
+                    "value": "button",
+                    "name": "Update",
+                    "enabled": true,
+                    "visible": false
+                  }
+                ]
+              },
+              {
+                "label": "Shared Key Server Config",
+                "value": "radioButton",
+                "id": "AzureSharedKey",
+                "default": false,
+                "checked": false,
+                "enabled": false,
+                "identification": "accountType1",
+                "visible": false,
+                "expanded": false,
+                "children": [
+                  {
+                    "id": "accountName_sharedKey",
+                    "label": "Account Name:",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "containerName_shared",
+                    "label": "Container Name",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "storageKey_sharedKey",
+                    "label": "Storage Key: ",
+                    "name": "Upload file",
+                    "value": "button",
+                    "text": "",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "fileName_sharedKey",
+                    "label": "File name:",
+                    "value": "textBox",
+                    "text": "",
+                    "enabled": false,
+                    "visible": false
+                  },
+                  {
+                    "id": "downloadSharedKeyConfig",
+                    "value": "button",
+                    "name": "Download key",
+                    "enabled": true,
+                    "visible": false
+                  },
+                  {
+                    "id": "updateSharedKeyConfig",
+                    "value": "button",
+                    "name": "Update",
+                    "enabled": true,
+                    "visible": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Device Information",
+    "id": "deviceInfo",
+    "toolTip": "Information about the device",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "manufacturer",
+        "label": "Manufacturer: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "model",
+        "label": "Model: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "firmwareVersion",
+        "label": "Firmware Version: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "serialNumber",
+        "label": "Serial Number: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "hardwareID",
+        "label": "Hardware ID: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "batteryStatus",
+        "label": "Battery Status: ",
+        "value": "label",
+        "enabled": true,
+        "visible": false,
+        "text": ""
+      },
+      {
+        "id": "chargingStatus",
+        "label": "Charging Status: ",
+        "value": "label",
+        "enabled": true,
+        "visible": false,
+        "text": ""
+      },
+      {
+        "id": "readBatteryStatusBtn",
+        "value": "button",
+        "visible": false,
+        "name": "Read Battery Status",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Image Capture Timer Configuration",
+    "id": "timerConfig",
+    "toolTip": "Configure timing settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "startTime",
+        "label": "Start Time",
+        "visible": true,
+        "value": "Start Time",
+        "startHour": 0,
+        "startMin": 0,
+        "startSec": 0,
+        "editable": true
+      },
+      {
+        "id": "endTime",
+        "label": "End Time",
+        "visible": true,
+        "value": "End Time",
+        "endHour": 0,
+        "endMin": 0,
+        "endSec": 0,
+        "editable": true
+      },
+      {
+        "id": "duration",
+        "label": "Duration",
+        "visible": true,
+        "value": "TimetextBox",
+        "enabled": true,
+        "hour": "",
+        "min": "",
+        "sec": "",
+        "editable": true
+      },
+      {
+        "id": "format",
+        "label": "Format",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "selected": "MJPG",
+        "children_drop": [
+          {
+            "label1": "MJPG"
+          },
+          {
+            "label1": "YUV"
+          }
+        ]
+      },
+      {
+        "id": "updateTimerConfig",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Camera Setting Configuration",
+    "id": "camSettingsConfig",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "Anti-Banding",
+        "label": "Anti-Banding",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "50Hz"
+          },
+          {
+            "label1": "60Hz"
+          }
+        ]
+      },
+      {
+        "id": "Quantization",
+        "label": "Q-Parameter",
+        "value": "slider",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      },
+      {
+        "id": "updateCamConfig",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "brightness",
+        "label": "Brightness",
+        "value": "slider",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "contrast",
+        "label": "Contrast",
+        "value": "slider",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "frameRate",
+        "label": "FrameRate",
+        "value": "slider",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "saturation",
+        "label": "Saturation",
+        "value": "slider",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "sharpness",
+        "label": "Sharpness",
+        "value": "slider",
+        "min": 0,
+        "max": 400,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "pan",
+        "label": "Pan",
+        "value": "Pan",
+        "min": -1,
+        "max": 1,
+        "step": 1,
+        "visible": false,
+        "enabled": false
+      },
+      {
+        "id": "tilt",
+        "label": "Tilt",
+        "value": "Tilt",
+        "min": -1,
+        "max": 1,
+        "step": 1,
+        "visible": false,
+        "enabled": false
+      },
+      {
+        "id": "zoom",
+        "label": "Zoom",
+        "value": "slider",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "exposureMode",
+        "label": "Exposure Mode: ",
+        "value": "dropBox",
+        "visible": false,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "AUTO"
+          },
+          {
+            "label1": "MANUAL"
+          }
+        ]
+      },
+      {
+        "id": "exposure",
+        "label": "Exposure",
+        "value": "slider",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "gain",
+        "label": "Gain",
+        "value": "slider",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "visible": false,
+        "enabled": true
+      },
+      {
+        "id": "wbMode",
+        "label": "WB Mode: ",
+        "value": "dropBox",
+        "visible": false,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "AUTO"
+          },
+          {
+            "label1": "MANUAL"
+          }
+        ]
+      },
+      {
+        "id": "whiteBalance",
+        "label": "White Balance: ",
+        "value": "dropBox",
+        "visible": false,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "Daylight"
+          },
+          {
+            "label1": "Incandescent"
+          },
+          {
+            "label1": "Fluorescent"
+          },
+          {
+            "label1": "Cloudy"
+          }
+        ]
+      },
+      {
+        "id": "setCameraConfigDefault",
+        "value": "button",
+        "name": "Set Default",
+        "enabled": true,
+        "visible": false
+      }
+    ]
+  },
+  {
+    "label": "Video Properties",
+    "id": "vidProperties",
+    "expanded": false,
+    "visible": false,
+    "children": [
+      {
+        "id": "resolution",
+        "label": "Resolution: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "1920x1080"
+          },
+          {
+            "label1": "2048x1560"
+          },
+          {
+            "label1" :  "2560x1920"
+          }
+        ]
+      },
+      {
+        "id": "setDefaultResolution",
+        "value": "button",
+        "name": "Set Default",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Video Record Timer Configuration",
+    "id": "vidRecTimerConfig",
+    "toolTip": "Configure timing settings for video recording",
+    "expanded": false,
+    "visible": false,
+    "children": [   
+      {
+        "id": "vidRecDuration",
+        "label": "Duration: ",
+        "value": "textBox",
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "circularRecording",
+        "label": "Circular Recording: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "Enable"
+          },
+          {
+            "label1": "Disable"
+          }
+        ]
+      },
+      {
+        "id": "eventRecording",
+        "label": "Event Recording: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "Enable"
+          },
+          {
+            "label1": "Disable"
+          }
+        ]
+      },
+      {
+        "id": "preEventDuration",
+        "label": "Pre-Event: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "selected" :  "5 sec",
+        "children_drop": [
+          {
+            "label1": "5 sec"
+          },
+          {
+            "label1": "10 sec"
+          },
+          {
+            "label1": "30 sec"
+          },
+          {
+            "label1": "1 min"
+          },
+          {
+            "label1": "3 min"
+          },
+          {
+            "label1": "5 min"
+          },
+          {
+            "label1": "10 min"
+          }
+        ]
+      },
+      {
+        "id": "postEventDuration",
+        "label": "Post-Event: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "selected" :  "5 sec",
+        "children_drop": [
+          {
+            "label1": "5 sec"
+          },
+          {
+            "label1": "10 sec"
+          },
+          {
+            "label1": "30 sec"
+          },
+          {
+            "label1": "1 min"
+          },
+          {
+            "label1": "3 min"
+          },
+          {
+            "label1": "5 min"
+          },
+          {
+            "label1": "10 min"
+          }
+        ]
+      },
+      {
+        "id": "updateVidRecTimerConfig",
+        "value": "button",
+        "name": "Schedule",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Snapshot",
+    "id": "snapshot",
+    "toolTip": "Snapshot",
+    "expanded": false,
+    "visible": false,
+    "children": [
+      {
+        "id": "snapShotBtn",
+        "value": "button",
+        "visible": true,
+        "name": "Take Snapshot",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Video Recording",
+    "id": "vidRecording",
+    "toolTip": "Video Recording",
+    "expanded": false,
+    "visible": false,
+    "children": [
+      {
+        "id": "vidRecBtn",
+        "value": "button",
+        "visible": true,
+        "name": "Recording",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "SD Card",
+    "id": "sdCard",
+    "toolTip": "SD Card Settings",
+    "expanded": false,
+    "visible": false,
+    "children": [
+      {
+        "id": "totalGb",
+        "label": "Total Space: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "freeGb",
+        "label": "Free Space: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "usedGb",
+        "label": "Used Space: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "statusMsg",
+        "label": "Status Message: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "ejectSDCardBtn",
+        "value": "button",
+        "visible": true,
+        "name": "Eject SD Card",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Reboot",
+    "id": "reboot",
+    "toolTip": "Restart the device",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "rebootBtn",
+        "value": "button",
+        "visible": true,
+        "name": "Reboot Device",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Power Off",
+    "id": "powerOff",
+    "toolTip": "PowerOff the device",
+    "expanded": false,
+    "visible": false,
+    "children": [
+      {
+        "id": "powerOffBtn",
+        "value": "button",
+        "visible": true,
+        "name": "PowerOff Device",
+        "enabled": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,781 @@
+[
+  {
+    "label": "Scene Mode",
+    "toolTip": "Scene Mode",
+    "id": "sceneMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Normal",
+        "value": "radioButton",
+        "id": "normalMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "sceneModes",
+        "visible": true
+      },
+      {
+        "label": "Document",
+        "value": "radioButton",
+        "id": "documentMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "sceneModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Special Effects",
+    "toolTip": "Special Effects",
+    "id": "specialEffect",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Normal",
+        "value": "radioButton",
+        "id": "normalEffect",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "specialEffects",
+        "visible": true
+      },
+      {
+        "label": "Black And White",
+        "value": "radioButton",
+        "id": "blackAndWhite",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "specialEffects",
+        "visible": true
+      },
+      {
+        "label": "GrayScale",
+        "value": "radioButton",
+        "id": "grayScale",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "specialEffects",
+        "visible": true
+      },
+      {
+        "label": "Negative",
+        "value": "radioButton",
+        "id": "negative",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "specialEffects",
+        "visible": true
+      },
+      {
+        "label": "Sketch",
+        "value": "radioButton",
+        "id": "sketch",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "specialEffects",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Auto-Focus Mode",
+    "toolTip": "Auto-Focus Mode",
+    "id": "autoFocusMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Continuous",
+        "value": "radioButton",
+        "id": "continuous",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "autoFocusModes",
+        "visible": true
+      },
+      {
+        "label": "One-shot",
+        "value": "radioButton",
+        "id": "oneShot",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "autoFocusModes",
+        "visible": true
+      },
+      {
+        "id": "trigger",
+        "value": "button",
+        "name": "Trigger",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Enable/Disable AF Rectangle",
+    "toolTip": "Enable/Disable AF Rectangle",
+    "id": "afRectangle",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Enable",
+        "value": "radioButton",
+        "id": "enableAfRect",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "afRect",
+        "visible": true
+      },
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "disableAfRect",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "afRect",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "ROI Auto-Focus",
+    "toolTip": "ROI Auto-Focus",
+    "id": "roiAutoFocus",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Centered",
+        "value": "radioButton",
+        "id": "centeredRoiAF",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "roiAF",
+        "visible": true
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualRoiAF",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "roiAF",
+        "visible": true
+      },
+      {
+        "id": "manualAF",
+        "label": "Value: ",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "children_drop": [
+          { "label1": "1" },
+          { "label1": "2" },
+          { "label1": "3" },
+          { "label1": "4" },
+          { "label1": "5" },
+          { "label1": "6" },
+          { "label1": "7" },
+          { "label1": "8" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "iHDR",
+    "toolTip": "iHDR",
+    "id": "iHdr",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Off",
+        "value": "radioButton",
+        "id": "offHdrMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "iHdrMode",
+        "visible": true
+      },
+      {
+        "label": "Auto",
+        "value": "radioButton",
+        "id": "autoHdrMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "iHdrMode",
+        "visible": true
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualHdrMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "iHdrMode",
+        "visible": true
+      },
+      {
+        "id": "hdrLevel",
+        "label": "Level: ",
+        "value": "slider",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Stream Mode",
+    "toolTip": "Stream Mode",
+    "id": "streamMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Master",
+        "value": "radioButton",
+        "id": "masterMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "streamModes",
+        "visible": true
+      },
+      {
+        "label": "Trigger",
+        "value": "radioButton",
+        "id": "triggerMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "streamModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Denoise Strength",
+    "toolTip": "Denoise Strength",
+    "id": "denoiseStrength",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "denoise",
+        "label": "Denoise: ",
+        "value": "slider",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "ROI Auto-Exposure",
+    "toolTip": "ROI Auto-Exposure",
+    "id": "roiAE",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Full",
+        "value": "radioButton",
+        "id": "fullROIAE",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "roiAEMode",
+        "visible": true
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualROIAE",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "roiAEMode",
+        "visible": true
+      },
+      {
+        "id": "manualAE",
+        "label": "Value: ",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "children_drop": [
+          { "label1": "1" },
+          { "label1": "2" },
+          { "label1": "3" },
+          { "label1": "4" },
+          { "label1": "5" },
+          { "label1": "6" },
+          { "label1": "7" },
+          { "label1": "8" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Exposure Compensation",
+    "toolTip": "Exposure Compensation",
+    "id": "exposureCompensation",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "expCompValue",
+        "label": "Value(in us)\n[8000-1000000]: ",
+        "value": "textBox",
+        "readOnly": false,
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "setExpComp",
+        "value": "button",
+        "name": "Set",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Q-Factor",
+    "toolTip": "Q-Factor",
+    "id": "qFactor",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "qFactorVal",
+        "label": "Q-Factor: ",
+        "value": "slider",
+        "min": 10,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Image Capture",
+    "toolTip": "Image Capture",
+    "id": "imageCapture",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "burstLen",
+        "label": "Burst Length: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          { "label1": "1" },
+          { "label1": "2" },
+          { "label1": "3" },
+          { "label1": "4" },
+          { "label1": "5" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Flip Control",
+    "toolTip": "Flip Control",
+    "id": "flipControl",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "horizontal",
+        "label": "Horizontal",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      },
+      {
+        "id": "vertical",
+        "label": "Vertical",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Auto White-Balance",
+    "toolTip": "Auto White-Balance",
+    "id": "autoWB",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "autoWBValue",
+        "label": "Value(in kelvin): ",
+        "value": "textBox",
+        "readOnly": true,
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "getAutoWB",
+        "value": "button",
+        "name": "Get",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Current Auto-Exposure",
+    "toolTip": "Current Auto-Exposure",
+    "id": "currentAE",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "autoAEValue",
+        "label": "Value(in us): ",
+        "value": "textBox",
+        "readOnly": true,
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "getCurrentAE",
+        "value": "button",
+        "name": "Get",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Flash Mode",
+    "toolTip": "Flash Mode",
+    "id": "flashMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "disableMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      },
+      {
+        "label": "Strobe",
+        "value": "radioButton",
+        "id": "strobeMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      },
+      {
+        "label": "Torch",
+        "value": "radioButton",
+        "id": "torchMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Face Detection",
+    "toolTip": "Face Detection",
+    "id": "faceDetection",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Enable",
+        "value": "radioButton",
+        "id": "enableFaceDet",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "faceDetectionMode",
+        "visible": true
+      },
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "disableFaceDet",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "faceDetectionMode",
+        "visible": true
+      },
+      {
+        "id": "embeddedData",
+        "label": "Embedded Data",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      },
+      {
+        "id": "overlayRect",
+        "label": "Overlay rectangle",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Current Auto-Focus Position",
+    "toolTip": "Current Auto-Focus Position",
+    "id": "currentAFPos",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "autoAFValue",
+        "label": "Value: ",
+        "value": "textBox",
+        "readOnly": true,
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "getCurrentAFPos",
+        "value": "button",
+        "name": "Get",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Frame Rate Control",
+    "toolTip": "Frame Rate Control",
+    "id": "frameRateControl",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "frameRate",
+        "label": "Frame Rate: ",
+        "value": "slider",
+        "min": 1,
+        "max": 120,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Anti-Flicker Mode",
+    "toolTip": "Anti-Flicker Mode",
+    "id": "antiFlicker",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Off",
+        "value": "radioButton",
+        "id": "offMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "antiFlickerMode",
+        "visible": true
+      },
+      {
+        "label": "Auto",
+        "value": "radioButton",
+        "id": "autoMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "antiFlickerMode",
+        "visible": true
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "antiFlickerMode",
+        "visible": true
+      },
+      {
+        "id": "frequency",
+        "label": "Frequency: ",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "children_drop": [
+          { "label1": "50 Hz" },
+          { "label1": "60 Hz" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Red Gain",
+    "toolTip": "Red Gain",
+    "id": "redGain",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "redGain_s",
+        "label": "Red Gain: ",
+        "value": "slider",
+        "min": 1,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Green Gain",
+    "toolTip": "Green Gain",
+    "id": "greenGain",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "greenGain_s",
+        "label": "Green Gain: ",
+        "value": "slider",
+        "min": 1,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Blue Gain",
+    "toolTip": "Blue Gain",
+    "id": "blueGain",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "blueGain_s",
+        "label": "Blue Gain: ",
+        "value": "slider",
+        "min": 1,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "label": "Auto Save Config",
+    "toolTip": "Auto Save Config",
+    "id": "autoSaveConfig",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "autoSave",
+        "label": "Auto Save",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "serialNum",
+    "label": "Serial Number",
+    "toolTip": "Read Serial Number",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "serialNumber",
+        "label": "Serial Num: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "firmwareVersion",
+    "label": "Firmware Version",
+    "toolTip": "Read Firmware Version",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "firmwareVer",
+        "label": "F/w version : ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "updateDefault",
+    "value": "button",
+    "name": "Default",
+    "enabled": true,
+    "visible": true
+  },
+  {
+    "id": "saveConfig",
+    "value": "button",
+    "name": "Save Configuration",
+    "enabled": true,
+    "visible": true
+  }
+]       

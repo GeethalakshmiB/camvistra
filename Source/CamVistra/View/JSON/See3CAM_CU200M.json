@@ -1,0 +1,141 @@
+[
+  {
+    "label": "Stream Mode",
+    "toolTip": "Stream Mode",
+    "id": "streamMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Master",
+        "value": "radioButton",
+        "id": "masterMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "streamModes",
+        "visible": true
+      },
+      {
+        "label": "Trigger",
+        "value": "radioButton",
+        "id": "triggerMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "streamModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Flash Mode",
+    "toolTip": "Flash Mode",
+    "id": "flashMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "disableMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      },
+      {
+        "label": "Strobe",
+        "value": "radioButton",
+        "id": "strobeMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      },
+      {
+        "label": "Torch",
+        "value": "radioButton",
+        "id": "torchMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "flashModes",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Flip Control",
+    "toolTip": "Flip Control",
+    "id": "flipControl",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "horizontal",
+        "label": "Horizontal",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      },
+      {
+        "id": "vertical",
+        "label": "Vertical",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "serialNum",
+    "label": "Serial Number",
+    "toolTip": "Read Serial Number",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "serialNumber",
+        "label": "Serial Num: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "firmwareVersion",
+    "label": "Firmware Version",
+    "toolTip": "Read Firmware Version",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "firmwareVer",
+        "label": "F/w version : ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "id": "updateDefault",
+    "value": "button",
+    "name": "Default",
+    "enabled": true,
+    "visible": true
+  },
+  {
+    "id": "resetDevice",
+    "value": "button",
+    "name": "Reset Device",
+    "enabled": true,
+    "visible": true
+  }
+]

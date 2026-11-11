@@ -1,0 +1,50 @@
+[
+  {
+    "id": "streamMode",
+    "tooltip": "Stream Mode – Selects master or trigger streaming."
+  },
+  {
+    "id": "cameraMode",
+    "tooltip": "Camera Mode – Selects IR, RGB, or simultaneous IR-RGB output."
+  },
+  {
+    "id": "strobeMode",
+    "tooltip": "Strobe Mode – Enables or disables the strobe output."
+  },
+  {
+    "id": "flipMode",
+    "tooltip": "Flip Mode – Flips the image horizontally and/or vertically."
+  },
+  {
+    "id": "brightnessIR",
+    "tooltip": "Brightness For IR – Adjusts IR-image brightness."
+  },
+  {
+    "id": "contrastIR",
+    "tooltip": "Contrast For IR – Adjusts IR-image contrast."
+  },
+  {
+    "id": "gainIR",
+    "tooltip": "Gain For IR – Adjusts IR-image gain."
+  },
+  {
+    "id": "minimumExposure",
+    "tooltip": "Minimum Exposure Compensation – Sets the minimum exposure limit in microseconds."
+  },
+  {
+    "id": "maximumExposure",
+    "tooltip": "Maximum Exposure Compensation – Sets the maximum exposure limit in microseconds."
+  },
+  {
+    "id": "defaultValue",
+    "tooltip": "Default – Restores extension controls to their default values."
+  },
+  {
+    "id": "serialNum",
+    "tooltip": "Serial Number – Reads the camera serial number."
+  },
+  {
+    "id": "firmwareVersion",
+    "tooltip": "Firmware Version – Reads the camera firmware version."
+  }
+]

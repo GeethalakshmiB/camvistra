@@ -1,0 +1,18 @@
+[
+    {
+        "id" : "firmwareVersion",
+        "tooltip" : "Firmware version.",        
+        "h1" : "Firmware Version", 
+        "content1" : "It displays the firmware version.",
+        "h3" : "API :",
+        "getAPIHeading" : " bool readFirmwareVersion(std::string& firmwareVer)",
+        "getAPIDes" : "This function will read the firmware version of the camera.",
+        "getAPICode" : "string firmwareVer;
+std::unique_ptr < eCamSDK::Ecam82_USB >
+ecam82UsbInstance = std::make_unique < eCamSDK::Ecam82_USB >();
+if(!ecam82UsbInstance->readFirmwareVersion (&firmwareVer))
+{
+        return false;
+}"   
+    }
+]

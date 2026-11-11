@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 25 25"
+    width="45"
+    height="45">
+
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffffff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+
+  <!-- Tray / Bottom Bar -->
+  <path class="cls-1"
+        d="M4.5,18.5c0-.6.5-1,1.1-1h13.8c.6,0,1.1.4,1.1,1v2
+           c0,.6-.5,1-1.1,1H5.6c-.6,0-1.1-.4-1.1-1v-2Z"/>
+
+  <!-- Upload Arrow -->
+  <path class="cls-1"
+        d="M12.5,20.5c.6,0,1-.4,1-1v-9.2l3.1,3.1
+           c.4.4,1,.4,1.4,0s.4-1,0-1.4l-5-5
+           c-.4-.4-1-.4-1.4,0l-5,5
+           c-.4.4-.4,1,0,1.4s1,.4,1.4,0l3.1-3.1V19.5
+           c0,.6.4,1,1,1Z"/>
+</svg>

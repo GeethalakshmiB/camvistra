@@ -1,0 +1,17 @@
+{
+  "Brightness": 45,
+  "Saturation": 175,
+  "Contrast": 64,
+  "Sharpness": 25,
+  "ExposureAuto": 1,
+  "ExposureTime": 0,
+  "AntiFlicker": 0,
+  "MaxExposureTime": 0,
+  "MinExposureTime": 10,
+  "Gain": 150,
+  "WhiteBalanceAuto": 1,
+  "WhiteBalanceYrGain": 128,
+  "WhiteBalanceYbGain": 128,
+  "WDR": 0,
+  "BackLightCompensation": 0
+}

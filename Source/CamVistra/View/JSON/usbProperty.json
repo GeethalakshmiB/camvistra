@@ -1,0 +1,515 @@
+[
+  {
+    "id": "cameraSettings",
+    "label": "Camera Settings",
+    "toolTip": "Configure image settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Brightness",
+        "toolTip": "Brightness",
+        "id": "brightness",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "brightness_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Contrast",
+        "toolTip": "Contrast",
+        "id": "contrast",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "contrast_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Hue",
+        "toolTip": "Hue",
+        "id": "hue",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "hue_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Saturation",
+        "toolTip": "Saturation",
+        "id": "c_saturation",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "saturation",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Sharpness",
+        "toolTip": "Sharpness",
+        "id": "sharpness",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "sharpness_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Gamma",
+        "toolTip": "Gamma",
+        "id": "gamma",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "gamma_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "White Balance",
+        "toolTip": "White Balance",
+        "id": "whiteBalance",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "wbMode",
+            "label": "WB Mode",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "AUTO"
+              },
+              {
+                "label1": "MANUAL"
+              }
+            ]
+          },
+          {
+            "id": "wbValue",
+            "label": "White Balance: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Backlight Compensation",
+        "toolTip": "Backlight Compensation",
+        "id": "backlightCompensation",
+        "enabled": true,
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "backlightCompensation_d",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "label": "Mode: ",
+            "children_drop": [
+              {
+                "label1": "ON"
+              },
+              {
+                "label1": "OFF"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Gain",
+        "toolTip": "Gain",
+        "id": "gain",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "gain_s",
+            "label": "Gain: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Power Line Freq",
+        "toolTip": "Power Line Frequency",
+        "id": "powerLineFreq",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "powerLineFreq_d",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "label": "Mode: ",
+            "children_drop": [
+              {
+                "label1": "DISABLE"
+              },
+              {
+                "label1": "50 Hz"
+              },
+              {
+                "label1": "60 Hz"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Pan",
+        "toolTip": "Pan",
+        "id": "pan",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "pan_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Tilt",
+        "toolTip": "Tilt",
+        "id": "tilt",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "tilt_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Roll",
+        "toolTip": "Roll",
+        "id": "roll",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "roll_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Zoom",
+        "toolTip": "Zoom",
+        "id": "zoom",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "zoom_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Exposure",
+        "toolTip": "Exposure",
+        "id": "exposure",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "exposureMode",
+            "label": "Exposure Mode: ",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "AUTO"
+              },
+              {
+                "label1": "MANUAL"
+              }
+            ]
+          },
+          {
+            "id": "exposureTime",
+            "label": "Exposure Time: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Focus",
+        "toolTip": "Focus",
+        "id": "focus",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "focusMode",
+            "label": "Focus Mode: ",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "AUTO"
+              },
+              {
+                "label1": "MANUAL"
+              }
+            ]
+          },
+          {
+            "id": "focusValue",
+            "label": "Focus: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "id": "updateDefault",
+        "value": "button",
+        "name": "Default",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": "vidProperties",
+    "label": "Video Properties",
+    "toolTip": "Video Properties",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "format",
+        "label": "Format: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "resolution",
+        "label": "Resolution",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "FPS",
+        "label": "FrameRate: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "updateVidProperty",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": "stillCapture",
+    "label": "Still Capture Settings",
+    "toolTip": "Configure cross-platform still image capture with support for multiple output formats. Enables capturing high-resolution still frames from the video stream and saving them in JPEG, PNG, RAW, or BMP formats across Windows, Linux, and other platforms. Allows format selection for codec compatibility and file format choice for different use cases.",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "stillFormat",
+        "label": "Format: ",
+        "toolTip": "Select video codec format for still capture encoding. ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "stillResolution",
+        "label": "Resolution",
+        "toolTip": "Specify the resolution for still image capture. Resolution is independent of video streaming settings.",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "stillFps",
+        "label": "FPS: ",
+        "toolTip": "Frame rate setting for still capture (currently not applicable for single frame capture but may be used for burst mode in future versions).",
+        "value": "dropBox",
+        "visible": false,
+        "enabled": false,
+        "children_drop": [
+          {
+            "label1": " "
+          }
+        ]
+      },
+      {
+        "id": "fileFormat",
+        "label": "File format: ",
+        "toolTip": "Choose output file format for saved still images. JPEG: Compressed format ideal for photos and web use. PNG: Lossless compression with transparency support. RAW: Uncompressed raw sensor data for maximum quality and post-processing flexibility. BMP: Uncompressed bitmap format for compatibility with legacy systems. All formats are cross-platform compatible.",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "BMP"
+          },
+          {
+            "label1": "RAW"
+          },
+          {
+            "label1": "PNG"
+          },
+          {
+            "label1": "JPEG"
+          }
+        ]
+      },
+      {
+        "id": "updateStillProperty",
+        "value": "button",
+        "name": "Update",
+        "toolTip": "Apply the still capture settings. Changes will take effect for subsequent still image captures.",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  }
+]

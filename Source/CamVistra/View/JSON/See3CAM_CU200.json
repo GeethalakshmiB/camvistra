@@ -1,0 +1,1027 @@
+[
+  {
+    "label": "White Balance",
+    "toolTip": "White Balance - choose Auto or Manual white balance control",
+    "id": "whiteBalance",
+    "expanded": false,
+    "enabled": true,
+    "visible": true,
+    "children": [
+      {
+        "label": "Auto",
+        "value": "radioButton",
+        "id": "autoWB",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "wbMode",
+        "visible": true,
+        "toolTip": "Let the camera continuously adjust white balance automatically"
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualWb",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "wbMode",
+        "visible": true,
+        "toolTip": "Set white balance manually using color temperature, preset, or RGB gains"
+      }
+    ]
+  },
+  {
+    "label": "Auto White Balance",
+    "toolTip": "Auto White Balance - configure the behaviour of automatic white balance",
+    "id": "autoWhiteBalance",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Continuous",
+        "value": "radioButton",
+        "id": "continuous",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "autoWhiteBalanceModes",
+        "visible": true,
+        "toolTip": "Continuously re-evaluate white balance on every frame"
+      },
+      {
+        "label": "One-shot",
+        "value": "radioButton",
+        "id": "oneShot",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "autoWhiteBalanceModes",
+        "visible": true,
+        "toolTip": "Run white balance once when triggered, then hold the result"
+      },
+      {
+        "id": "trigger",
+        "value": "button",
+        "name": "Trigger",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Trigger a single one-shot white balance run"
+      }
+    ]
+  },
+  {
+    "label": "Manual White Balance",
+    "toolTip": "Manual White Balance - set white balance using color temperature, preset, or RGB gains",
+    "id": "manualWhiteBalance",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Color Temperature",
+        "value": "radioButton",
+        "id": "colorTemperature",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "manualWhiteBalanceModes",
+        "visible": true,
+        "toolTip": "Set white balance using a color-temperature value (Kelvin)"
+      },
+      {
+        "id": "colorTemperatureSlider",
+        "label": "Value: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Manual white balance color-temperature value. NOTE: this reuses the same underlying SET_COLOR_TEMPERATURE command as the standalone \"Color Temperature\" section below (colorTempSlider) - they control the same camera property from two different contexts."
+      },
+      {
+        "label": "Preset",
+        "value": "radioButton",
+        "id": "presetManualWb",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "manualWhiteBalanceModes",
+        "visible": true,
+        "toolTip": "Set white balance using a named lighting preset"
+      },
+      {
+        "id": "manualPreset",
+        "label": "Value: ",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Choose a lighting preset for manual white balance",
+        "children_drop": [
+          {
+            "label1": "HZ(2300K)"
+          },
+          {
+            "label1": "A(2800K)"
+          },
+          {
+            "label1": "U30(3000K)"
+          },
+          {
+            "label1": "TL84(4000K)"
+          },
+          {
+            "label1": "CWF(4100K)"
+          },
+          {
+            "label1": "D50(5000K)"
+          },
+          {
+            "label1": "D60(6000K)"
+          },
+          {
+            "label1": "D65(6500K)"
+          }
+        ]
+      },
+      {
+        "label": "Pro Mode",
+        "value": "radioButton",
+        "id": "proMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "manualWhiteBalanceModes",
+        "visible": true,
+        "toolTip": "Set white balance manually using individual Red/Green/Blue gain sliders"
+      },
+      {
+        "id": "redGain_s",
+        "label": "Red Gain: ",
+        "value": "slider",
+        "min": 1,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Manual white balance Pro Mode red channel gain (display only - see the dedicated \"RGB Gain\" section for the wired Red/Blue gain control; this SDK has no separate green-gain command)"
+      },
+      {
+        "id": "greenGain_s",
+        "label": "Green Gain: ",
+        "value": "slider",
+        "min": 1,
+        "max": 96,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Manual white balance Pro Mode green channel gain (display only - the camera has no dedicated green-gain command)"
+      }
+    ]
+  },
+  {
+    "label": "Color Correction Matrix",
+    "toolTip": "Color Correction Matrix - fine tune the 3x3 color correction matrix applied to the image",
+    "id": "colorCorrectionMatrix",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "ccmRr",
+        "label": "Rr: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Red output from Red input"
+      },
+      {
+        "id": "ccmRg",
+        "label": "Rg: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Red output from Green input"
+      },
+      {
+        "id": "ccmRb",
+        "label": "Rb: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Red output from Blue input"
+      },
+      {
+        "id": "ccmGr",
+        "label": "Gr: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Green output from Red input"
+      },
+      {
+        "id": "ccmGg",
+        "label": "Gg: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Green output from Green input"
+      },
+      {
+        "id": "ccmGb",
+        "label": "Gb: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Green output from Blue input"
+      },
+      {
+        "id": "ccmBr",
+        "label": "Br: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Blue output from Red input"
+      },
+      {
+        "id": "ccmBg",
+        "label": "Bg: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Blue output from Green input"
+      },
+      {
+        "id": "ccmBb",
+        "label": "Bb: ",
+        "value": "slider",
+        "min": -4,
+        "max": 4,
+        "step": 0.01,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Color correction matrix coefficient: Blue output from Blue input"
+      }
+    ]
+  },
+  {
+    "label": "Saturation",
+    "toolTip": "Saturation - adjust color intensity of the image",
+    "id": "saturation",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "saturationSlider",
+        "label": "Saturation: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Image color saturation value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Target Brightness",
+    "toolTip": "Target Brightness - set the brightness level the camera's auto-exposure aims for",
+    "id": "targetBrightness",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "targetBrightnessSlider",
+        "label": "Target Brightness: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Target brightness used by auto-exposure/auto-gain (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Exposure",
+    "toolTip": "Exposure - choose Auto or Manual exposure control",
+    "id": "exposure",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Auto",
+        "value": "radioButton",
+        "id": "autoExposure",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "exposureModeGroup",
+        "visible": true,
+        "toolTip": "Let the camera automatically control exposure"
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualExposure",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "exposureModeGroup",
+        "visible": true,
+        "toolTip": "Set a fixed manual exposure value"
+      }
+    ]
+  },
+  {
+    "label": "Auto Gain Upper Limit",
+    "toolTip": "Auto Gain Upper Limit - cap the maximum analog gain the auto-exposure algorithm may use",
+    "id": "autoGainUpperLimit",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "autoGainUpperLimitSlider",
+        "label": "Upper Limit: ",
+        "value": "slider",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Maximum auto-gain value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Exposure Compensation",
+    "toolTip": "Exposure Compensation",
+    "id": "exposureCompensation",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "expCompValue",
+        "label": "Value(in us)\n[100-1000000]:",
+        "value": "textBox",
+        "readOnly": false,
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "setExpComp",
+        "value": "button",
+        "name": "Set",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Auto Exposure",
+    "toolTip": "Exposure Compensation - bias the auto-exposure result brighter or darker",
+    "id": "autoExp",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Continuous",
+        "value": "radioButton",
+        "id": "continuousExposure",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "autoExposureFeatureGroup",
+        "visible": true,
+        "toolTip": "Continuously re-evaluate auto-exposure on every frame (only used when Exposure is Auto)"
+      },
+      {
+        "label": "Single-shot",
+        "value": "radioButton",
+        "id": "singleShotExposure",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "autoExposureFeatureGroup",
+        "visible": true,
+        "toolTip": "Run auto-exposure once, then hold the result (only used when Exposure is Auto)"
+      },
+      {
+        "id": "triggerSingleShot",
+        "value": "button",
+        "name": "Trigger",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Trigger a single one-shot auto-exposure run"
+      }
+    ]
+  },
+  {
+    "label": "Manual Exposure",
+    "toolTip": "Exposure Compensation - bias the auto-exposure result brighter or darker",
+    "id": "manualExp",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "manualExposureSlider",
+        "label": "Exposure (us): ",
+        "value": "slider",
+        "min": 100,
+        "max": 1000000,
+        "step": 100,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Manual exposure time in microseconds, 100 to 1000000 (only used when Exposure is Manual)"
+      }
+    ]
+  },
+  {
+    "label": "Auto Exposure ROI",
+    "toolTip": "Auto Exposure ROI - choose whether auto-exposure evaluates the full frame or a manually selected region",
+    "id": "autoExposureROI",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Full",
+        "value": "radioButton",
+        "id": "fullROI",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "autoExpRoiModeGroup",
+        "visible": true,
+        "toolTip": "Auto-exposure evaluates the entire frame"
+      },
+      {
+        "label": "Manual",
+        "value": "radioButton",
+        "id": "manualROI",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "autoExpRoiModeGroup",
+        "visible": true,
+        "toolTip": "Auto-exposure evaluates only a region you click on the preview"
+      },
+      {
+        "id": "roiWindowSize",
+        "label": "Window Size: ",
+        "value": "dropBox",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Size of the manual auto-exposure ROI window centered on the clicked point (only used when Auto Exposure ROI is Manual)",
+        "children_drop": [
+          {
+            "label1": "1"
+          },
+          {
+            "label1": "2"
+          },
+          {
+            "label1": "3"
+          },
+          {
+            "label1": "4"
+          },
+          {
+            "label1": "5"
+          },
+          {
+            "label1": "6"
+          },
+          {
+            "label1": "7"
+          },
+          {
+            "label1": "8"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Anti-Flicker Mode",
+    "toolTip": "Anti-Flicker Mode - compensate for flicker caused by AC power-line lighting",
+    "id": "antiFlicker",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "50 Hz",
+        "value": "radioButton",
+        "id": "flicker50Hz",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "antiFlickerModeGroup",
+        "visible": true,
+        "toolTip": "Compensate for 50 Hz AC power-line flicker"
+      },
+      {
+        "label": "60 Hz",
+        "value": "radioButton",
+        "id": "flicker60Hz",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "antiFlickerModeGroup",
+        "visible": true,
+        "toolTip": "Compensate for 60 Hz AC power-line flicker"
+      },
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "flickerDisable",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "antiFlickerModeGroup",
+        "visible": true,
+        "toolTip": "Disable anti-flicker compensation"
+      }
+    ]
+  },
+  {
+    "label": "Brightness",
+    "toolTip": "Brightness - adjust the overall image brightness",
+    "id": "brightness",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "brightnessSlider",
+        "label": "Brightness: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Image brightness value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Contrast",
+    "toolTip": "Contrast - adjust the difference between light and dark areas of the image",
+    "id": "contrast",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "contrastSlider",
+        "label": "Contrast: ",
+        "value": "slider",
+        "min": 0,
+        "max": 255,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Image contrast value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Gamma",
+    "toolTip": "Gamma - adjust the gamma correction curve applied to the image",
+    "id": "gamma",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "gammaSlider",
+        "label": "Gamma: ",
+        "value": "slider",
+        "min": 0,
+        "max": 500,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Gamma correction value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Black Level",
+    "toolTip": "Black Level - adjust the sensor's black-level offset",
+    "id": "blackLevel",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "blackLevelSlider",
+        "label": "Black Level: ",
+        "value": "slider",
+        "min": 0,
+        "max": 4095,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Sensor black level value (range is refreshed from the camera on connect)"
+      }
+    ]
+  },
+  {
+    "label": "Orientation",
+    "toolTip": "Orientation - flip the image horizontally and/or vertically",
+    "id": "orientation",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "horizontal",
+        "label": "Horizontal",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Flip the image horizontally"
+      },
+      {
+        "id": "vertical",
+        "label": "Vertical",
+        "value": "checkbox",
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Flip the image vertically (both Horizontal and Vertical together apply a 180 degree rotation)"
+      }
+    ]
+  },
+  {
+    "label": "Camera Mode",
+    "toolTip": "Camera Mode - choose free-running Master mode or externally-triggered Trigger mode",
+    "id": "cameraMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Master",
+        "value": "radioButton",
+        "id": "masterCamMode",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "cameraModeGroup",
+        "visible": true,
+        "toolTip": "Camera streams continuously as master"
+      },
+      {
+        "label": "Trigger",
+        "value": "radioButton",
+        "id": "triggerCamMode",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "cameraModeGroup",
+        "visible": true,
+        "toolTip": "Camera captures a frame only when externally triggered"
+      }
+    ]
+  },
+  {
+    "label": "Strobe Mode",
+    "toolTip": "Strobe Mode - enable or disable the strobe output",
+    "id": "strobeMode",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Off",
+        "value": "radioButton",
+        "id": "strobeOff",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "strobeModeGroup",
+        "visible": true,
+        "toolTip": "Disable the strobe output"
+      },
+      {
+        "label": "On",
+        "value": "radioButton",
+        "id": "strobeOn",
+        "default": false,
+        "checked": true,
+        "enabled": true,
+        "identification": "strobeModeGroup",
+        "visible": true,
+        "toolTip": "Enable the strobe output"
+      }
+    ]
+  },
+  {
+    "label": "Statistics",
+    "toolTip": "Statistics - read the camera's current auto-exposure/auto-gain/color-correction values",
+    "id": "statistics",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "statExposure",
+        "label": "Exposure: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current exposure value reported by the camera"
+      },
+      {
+        "id": "statAutoGain",
+        "label": "Auto Gain: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current auto-gain value reported by the camera"
+      },
+      {
+        "id": "statRGain",
+        "label": "R Gain: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current red channel gain reported by the camera"
+      },
+      {
+        "id": "statBGain",
+        "label": "B Gain: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current blue channel gain reported by the camera"
+      },
+      {
+        "id": "statCcmRr",
+        "label": "CCM Rr: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Rr"
+      },
+      {
+        "id": "statCcmRg",
+        "label": "CCM Rg: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Rg"
+      },
+      {
+        "id": "statCcmRb",
+        "label": "CCM Rb: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Rb"
+      },
+      {
+        "id": "statCcmGr",
+        "label": "CCM Gr: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Gr"
+      },
+      {
+        "id": "statCcmGg",
+        "label": "CCM Gg: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Gg"
+      },
+      {
+        "id": "statCcmGb",
+        "label": "CCM Gb: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Gb"
+      },
+      {
+        "id": "statCcmBr",
+        "label": "CCM Br: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Br"
+      },
+      {
+        "id": "statCcmBg",
+        "label": "CCM Bg: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Bg"
+      },
+      {
+        "id": "statCcmBb",
+        "label": "CCM Bb: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Current color correction matrix coefficient Bb"
+      },
+      {
+        "id": "readStatisticsBtn",
+        "value": "button",
+        "name": "Read",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Read the current statistics from the camera"
+      }
+    ]
+  },
+  {
+    "label": "Denoise",
+    "toolTip": "Denoise - enable noise reduction and adjust its strength",
+    "id": "denoise",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Enable",
+        "value": "radioButton",
+        "id": "enableDenoise",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "denoiseMode",
+        "visible": true
+      },
+      {
+        "label": "Disable",
+        "value": "radioButton",
+        "id": "disableDenoise",
+        "default": true,
+        "checked": false,
+        "enabled": true,
+        "identification": "denoiseMode",
+        "visible": true
+      },
+      {
+        "id": "denoiseStrengthSlider",
+        "label": "Strength: ",
+        "value": "slider",
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Noise reduction strength, 0.1 to 2.0, default 1.0"
+      },
+      {
+        "id": "sharpnessSlider",
+        "label": "Sharpness: ",
+        "value": "slider",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "visible": true,
+        "enabled": true,
+        "toolTip": "Sharpness strength, 0 (softest) to 20 (sharpest), default 10"
+      }
+    ]
+  },
+  {
+    "label": "ISP Firmware Version",
+    "toolTip": "ISP Firmware Version - read the image-signal-processor firmware version (distinct from the generic device Firmware Version above)",
+    "id": "ispFirmwareVersion",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "ispFirmwareVer",
+        "label": "ISP F/w version : ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Image signal processor firmware version"
+      },
+      {
+        "id": "readIspFwVersionBtn",
+        "value": "button",
+        "name": "Read",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Read the ISP firmware version from the camera"
+      }
+    ]
+  },
+  {
+    "id": "serialNum",
+    "label": "Serial Number",
+    "toolTip": "Read Serial Number",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "serialNumber",
+        "label": "Serial Num: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Camera's serial number"
+      }
+    ]
+  },
+  {
+    "id": "firmwareVersion",
+    "label": "Firmware Version",
+    "toolTip": "Read Firmware Version",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "firmwareVer",
+        "label": "F/w version : ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": "",
+        "toolTip": "Camera's device firmware version"
+      }
+    ]
+  },
+  {
+    "label": "Reset Device",
+    "toolTip": "Reset Device - reboot the camera",
+    "id": "resetDevice",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "resetDeviceBtn",
+        "value": "button",
+        "name": "Reset",
+        "enabled": true,
+        "visible": true,
+        "toolTip": "Reset (reboot) the camera device"
+      }
+    ]
+  },
+  {
+    "id": "defaultConfig",
+    "value": "button",
+    "name": "Default Configuration",
+    "enabled": true,
+    "visible": true,
+    "toolTip": "Reset all See3CAM_CU200 settings to their factory default values"
+  },
+  {
+    "id": "saveConfiguration",
+    "value": "button",
+    "name": "Save Configuration",
+    "enabled": true,
+    "visible": true,
+    "toolTip": "Sets the user-defined values to the camera."
+  },
+  {
+    "id": "updateDefault",
+    "value": "button",
+    "name": "Default",
+    "enabled": true,
+    "visible": true,
+    "toolTip": "Reset all See3CAM_CU200 settings to their factory default values"
+  }
+]

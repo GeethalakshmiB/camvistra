@@ -1,0 +1,596 @@
+[
+  {
+    "id": "cameraSettings",
+    "label": "Camera Settings",
+    "toolTip": "Configure image settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "Brightness : ",
+        "toolTip": "Brightness",
+        "id": "brightness",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "brightness_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Color Saturation : ",
+        "toolTip": "Color Saturation",
+        "id": "c_saturation",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "saturation",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Contrast: ",
+        "toolTip": "Contrast",
+        "id": "contrast",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "contrast_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Sharpness: ",
+        "toolTip": "Sharpness",
+        "id": "sharpness",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "sharpness_s",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "Exposure: ",
+        "toolTip": "Exposure",
+        "id": "exposure",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+
+          {
+            "id": "exposureMode",
+            "label": "Exposure Mode: ",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "AUTO"
+              },
+              {
+                "label1": "MANUAL"
+              }
+            ]
+          },
+          {
+            "id": "antiFlicker",
+            "label": "Anti-Flicker: ",
+            "value": "checkbox",
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "exposureTime",
+            "label": "Exposure Time: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "max_exposure_s",
+            "label": "Max Exp Time: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "min_exposure_s",
+            "label": "Min Exp Time: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "gain_s",
+            "label": "Exposure Gain: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "White Balance: ",
+        "toolTip": "White Balance",
+        "id": "whiteBalance",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+          {
+            "id": "wbMode",
+            "label": "WB Mode",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "AUTO"
+              },
+              {
+                "label1": "MANUAL"
+              }
+            ]
+          },
+          {
+            "id": "bGain",
+            "label": "Blue Gain: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "rGain",
+            "label": "Red Gain: ",
+            "value": "slider",
+            "min": 0,
+            "max": 255,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "label": "HDR Mode : ",
+        "toolTip": "HDR Mode",
+        "id": "hdrMode",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "hdrMode_d",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "label": "Mode: ",
+            "children_drop": [
+              {
+                "label1": "ON"
+              },
+              {
+                "label1": "OFF"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Backlight Compensation: ",
+        "toolTip": "Backlight Compensation",
+        "id": "backlightCompensation",
+        "enabled": true,
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "backlightCompensation_d",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "selected": "OFF",
+            "currentValue":  "OFF",
+            "label": "Mode: ",
+            "children_drop": [
+              {
+                "label1": "ON"
+              },
+              {
+                "label1": "OFF"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "updateDefault",
+        "value": "button",
+        "name": "Default",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": "vidProperties",
+    "label": "Video Properties",
+    "toolTip": "Video Properties",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "format",
+        "label": "Format: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "H264"
+          },
+          {
+            "label1": "HEVC"
+          }
+        ]
+      },
+      {
+        "id": "resolution",
+        "label": "Resolution",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "3840x2160"
+          }
+        ]
+      },
+      {
+        "id": "FPS",
+        "label": "FrameRate: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "30fps"
+          }
+        ]
+      },
+      {
+        "id": "codecProfile",
+        "label": "Codec Profile:",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "Main"
+          }
+        ]
+      },
+      {
+        "id": "updateVidProperty",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": "qualitySettings",
+    "label": "Quality Settings",
+    "toolTip": "Quality Settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "label": "GOP SIZE: ",
+        "toolTip": "GOP size",
+        "id": "gopSize",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "gopSize_s",
+            "value": "slider",
+            "min": 0,
+            "max": 120,
+            "step": 1,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "updateGop",
+            "value": "button",
+            "name": "Update",
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      },
+      {
+        "label": "RC Type : ",
+        "toolTip": "RC Type",
+        "id": "rcType",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "rcType_d",
+            "label": "RC Type: ",
+            "value": "dropBox",
+            "visible": true,
+            "enabled": true,
+            "children_drop": [
+              {
+                "label1": "VBR"
+              },
+              {
+                "label1": "CBR"
+              }
+            ]
+          },
+          {
+            "id": "updateRcType",
+            "value": "button",
+            "name": "Update",
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      },
+      {
+        "label": "Bitrate : ",
+        "toolTip": "Bitrate",
+        "id": "bitRate",
+        "expanded": false,
+        "visible": true,
+        "children": [
+          {
+            "id": "bitrate_s",
+            "value": "slider",
+            "min": 0,
+            "max": 20000000,
+            "step": 1000,
+            "visible": true,
+            "enabled": true
+          },
+          {
+            "id": "updateBitrate",
+            "value": "button",
+            "name": "Update",
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      },
+      {
+        "label": "Quality Parameters ",
+        "toolTip": "Quality Parameters",
+        "id": "qp",
+        "expanded": false,
+        "enabled": true,
+        "visible": true,
+        "children": [
+
+          {
+            "label": "I-Frame QP : ",
+            "toolTip": "I-Frame QP",
+            "id": "iFrameQp",
+            "expanded": false,
+            "visible": true,
+            "children": [
+              {
+                "id": "iFrameQP_s",
+                "value": "slider",
+                "min": 0,
+                "max": 60,
+                "step": 1,
+                "visible": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "label": "Min QP : ",
+            "toolTip": "Min QP",
+            "id": "minQp",
+            "expanded": false,
+            "visible": true,
+            "children": [
+              {
+                "id": "minQp_s",
+                "value": "slider",
+                "min": 0,
+                "max": 50,
+                "step": 1,
+                "visible": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "label": "Max QP : ",
+            "toolTip": "Max QP",
+            "id": "maxQp",
+            "expanded": false,
+            "visible": true,
+            "children": [
+              {
+                "id": "maxQp_s",
+                "value": "slider",
+                "min": 0,
+                "max": 99,
+                "step": 1,
+                "visible": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "updateQp",
+            "value": "button",
+            "name": "Update",
+            "enabled": true,
+            "visible": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "networkSettings",
+    "label": "Network Settings",
+    "toolTip": "Network Settings",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "dhcpMode",
+        "label": "DHCP Mode: ",
+        "value": "dropBox",
+        "visible": true,
+        "enabled": true,
+        "children_drop": [
+          {
+            "label1": "ON"
+          },
+          {
+            "label1": "OFF"
+          }
+        ]
+      },
+      {
+        "id": "ipAddress",
+        "label": "IP Address",
+        "value": "textBox",
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "subnetMask",
+        "label": "Subnet Mask: ",
+        "value": "textBox",
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "gateway",
+        "label": "Gateway: ",
+        "value": "textBox",
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "updateNetworkSettings",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "ntpField",
+        "label": "NTP : ",
+        "value": "textBox",
+        "text": "",
+        "enabled": true,
+        "visible": true
+      },
+      {
+        "id": "updateNtp",
+        "value": "button",
+        "name": "Update",
+        "enabled": true,
+        "visible": true
+      }
+    ]
+  },
+  {
+    "label": "Device Information",
+    "id": "deviceInfo",
+    "toolTip": "Information about the device",
+    "expanded": false,
+    "visible": true,
+    "children": [
+      {
+        "id": "manufacturer",
+        "label": "Manufacturer: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "firmwareVersion",
+        "label": "Firmware Version: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      },
+      {
+        "id": "name",
+        "label": "Name: ",
+        "value": "label",
+        "enabled": true,
+        "visible": true,
+        "text": ""
+      }
+
+    ]
+  }
+]

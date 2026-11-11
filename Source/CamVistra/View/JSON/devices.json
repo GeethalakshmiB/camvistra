@@ -1,0 +1,79 @@
+[
+  {
+    "id" :  "wifiDev",
+    "label": "Wifi Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "ethernetDev",
+    "label": "Ethernet Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "usbDev",
+    "label": "USB Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "gmslDev",
+    "label": "GMSL Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "mipiDev",
+    "label": "MIPI Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "pciDev",
+    "label": "PCI Grabber Cameras",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  },
+  {
+    "id": "audioDev",
+    "label": "Audio Devices",
+    "expanded": false,
+    "children": [
+      {
+        "label": "No devices found",
+        "noDevices": true
+      }
+    ]
+  }
+]
