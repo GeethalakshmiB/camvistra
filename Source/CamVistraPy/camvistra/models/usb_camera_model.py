@@ -11,6 +11,7 @@ from PyQt5.QtCore import QObject, pyqtSignal
 
 from camvistra import feature_flags, tslog
 from camvistra.cameras.base import IS_WINDOWS
+from camvistra.models.wifi_onvif_model import fmt_number  # noqa: F401  (re-exported)
 from camvistra.native import sdk
 
 UI_ID_TO_PROPERTY = {
@@ -38,11 +39,6 @@ def _fps_key(text: str) -> int:
         return int(text[:-3]) if text.endswith("fps") else int(text)
     except ValueError:
         return 0  # QString::toInt() on non-numeric text
-
-
-def fmt_number(value) -> str:
-    """QString::number(double) formatting (%g with 6 significant digits)."""
-    return f"{value:g}" if isinstance(value, float) else str(value)
 
 
 class UsbCameraModel(QObject):

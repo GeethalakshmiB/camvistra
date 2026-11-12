@@ -245,7 +245,7 @@ Column {
                         id: labelText
                         text: modelData.label
                         font.pixelSize: menuFontSize
-                        color: !infoRow.rowEnabled || ((videoRecord || isControlUpdated || opencamInitiated) && !modelData.children) ? "#66665f" : "#ffffff"
+                        color: modelData.noDevices || !infoRow.rowEnabled || ((videoRecord || isControlUpdated || opencamInitiated) && !modelData.children) ? "#66665f" : "#ffffff"
                         Layout.alignment: Qt.AlignVCenter
                         Layout.fillWidth: true       // ← takes remaining space, enables elide
                         horizontalAlignment: Text.AlignLeft

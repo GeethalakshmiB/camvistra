@@ -60,6 +60,27 @@ Column
 			property var itemData: modelData
             property bool itemEnabled: modelData.enabled !== undefined ? modelData.enabled : true
 
+			function settingLabelText(expanded) {
+				var label = itemData.label || ""
+				var children = itemData.children
+				if (expanded) {
+					return children && children.length > 0
+						? String(label).replace(/\s+$/, "").replace(/:\s*$/, "")
+						: label
+				}
+				if (!children || children.length === 0 || children[0].value === undefined)
+					return label
+				var currentValue = children[0].currentValue
+				if (currentValue === undefined || currentValue === null) return label
+				var cleanLabel = String(label).replace(/\s+$/, "")
+				var separator = /:$/.test(cleanLabel) ? " " : " : "
+				return cleanLabel + separator + String(currentValue)
+			}
+
+			function refreshSettingLabel() {
+				textItm.text = settingLabelText(infoRow.expanded)
+			}
+
 			// LISTEN TO TARGETED SIGNALS
             Connections {
                 target: column_main
@@ -107,10 +128,7 @@ Column
 							}
             
 							// Force text binding to update
-							if(accordionColumn.itemData.children[0].value == "slider" || 
-							   accordionColumn.itemData.children[0].value == "dropBox"){			
-								textItm.text = accordionColumn.itemData.label + " " + String(newValue);
-							}
+							accordionColumn.refreshSettingLabel()
 						}
 					}
 					
@@ -127,6 +145,12 @@ Column
                 
                 // Handle dropdown options changes
                onFieldOptionsChanged: {
+					if (accordionColumn.itemData.children &&
+						accordionColumn.itemData.children.length > 0 &&
+						accordionColumn.itemData.children[0].id === fieldId) {
+						accordionColumn.itemData.children[0].currentValue = selected;
+						accordionColumn.refreshSettingLabel()
+					}
 					if (accordionColumn.itemData.id === fieldId) {
 						// Update the data model
 						accordionColumn.itemData.children_drop = newOptions;
@@ -193,6 +217,7 @@ Column
 							}
 						} else {
 							infoRow.expanded = !infoRow.expanded;
+							accordionColumn.refreshSettingLabel()
 							if (infoRow.expanded == true && modelData.children) {
 								logController.expandedItem(modelData.id)
 							}
@@ -228,15 +253,7 @@ Column
                     font.pixelSize: menuFontSize
 					color: accordionColumn.itemEnabled ? "#ffffff" : "#808080"  // Visual feedback
 					text: {
-						if (!accordionColumn.itemData.label) return ""
-    
-						var hasChildren = accordionColumn.itemData.children && accordionColumn.itemData.children.length > 0
-						if (!hasChildren) return accordionColumn.itemData.label
-    
-						var currentVal = accordionColumn.itemData.children[0].currentValue
-						var valueStr = (currentVal !== undefined && currentVal !== null) ? String(currentVal) : ""
-    
-						return accordionColumn.itemData.label + " " + valueStr
+						return accordionColumn.settingLabelText(infoRow.expanded)
 					}	
                 }				
 			}

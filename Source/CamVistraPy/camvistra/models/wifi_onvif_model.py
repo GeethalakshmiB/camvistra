@@ -47,6 +47,15 @@ def qstr_to_int(text: str) -> int:
     return value if _INT_MIN <= value <= _INT_MAX else 0
 
 
+def fmt_number(value) -> str:
+    """QString::number(double) formatting (%g with 6 significant digits).
+
+    SDK ``float`` fields arrive as Python floats: ``f"{30.0}"`` gives "30.0"
+    where C++ gives "30", and qstr_to_int("30.0") then returns 0.
+    """
+    return f"{value:g}" if isinstance(value, float) else str(value)
+
+
 def qv_to_int(value) -> int:
     """QVariant::toInt() for values arriving from QML/JS."""
     if value is None:

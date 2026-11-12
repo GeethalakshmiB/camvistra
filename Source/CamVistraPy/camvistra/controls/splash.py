@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import numpy as np
 from PyQt5.QtCore import QElapsedTimer, QPointF, QRect, QRectF, QSizeF, Qt, QTimer
-from PyQt5.QtGui import QColor, QFont, QImage, QPainter, QPainterPath, QPixmap
+from PyQt5.QtGui import QColor, QFont, QImage, QPainter, QPainterPath, QPen, QPixmap
 from PyQt5.QtWidgets import QSplashScreen
 
 from camvistra import tslog
@@ -184,6 +184,51 @@ class AnimatedSplashScreen(QSplashScreen):
             self._rotate_about_lens_center(painter, rotation)
             painter.drawImage(top_left, self._lens_layer)
             painter.restore()
+        painter.restore()
+
+        # Keep the camera animation in sync with the C++ splash: it runs
+        # continuously from left to right in the gap above the tagline.
+        run_phase = self._animation_time_ms * 0.018
+        bob = np.sin(run_phase * 2.0) * 2.0
+        camera_half_width = 39.0
+        travel_width = self.width() - 2.0 * camera_half_width
+        travel_progress = (self._animation_time_ms % 2400.0) / 2400.0
+        camera_center = QPointF(camera_half_width + travel_progress * travel_width,
+                                 226.0 + bob)
+        navy = QColor("#123e69")
+        green = QColor("#69ba2f")
+
+        painter.save()
+        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setPen(QPen(navy, 3.0, Qt.SolidLine, Qt.RoundCap, Qt.RoundJoin))
+        painter.setBrush(Qt.NoBrush)
+        # Motion marks trail behind the moving camera.
+        painter.drawLine(camera_center + QPointF(-35.0, -4.0),
+                         camera_center + QPointF(-27.0, -4.0))
+        painter.drawLine(camera_center + QPointF(-32.0, 4.0),
+                         camera_center + QPointF(-26.0, 4.0))
+        # Body, viewfinder, and lens.
+        painter.setBrush(QColor("#ffffff"))
+        painter.drawRoundedRect(QRectF(camera_center.x() - 23.0,
+                                       camera_center.y() - 12.0, 42.0, 27.0),
+                                6.0, 6.0)
+        painter.drawRoundedRect(QRectF(camera_center.x() - 12.0,
+                                       camera_center.y() - 17.0, 15.0, 6.0),
+                                2.0, 2.0)
+        painter.setBrush(green)
+        painter.drawEllipse(camera_center + QPointF(7.0, 1.0), 7.0, 7.0)
+        painter.setBrush(Qt.NoBrush)
+        painter.drawEllipse(camera_center + QPointF(7.0, 1.0), 3.2, 3.2)
+        # Alternating legs make the camera read as running as it travels.
+        stride = np.sin(run_phase) * 8.0
+        painter.drawLine(camera_center + QPointF(-12.0, 15.0),
+                         camera_center + QPointF(-15.0 + stride, 25.0))
+        painter.drawLine(camera_center + QPointF(9.0, 15.0),
+                         camera_center + QPointF(12.0 - stride, 25.0))
+        painter.drawLine(camera_center + QPointF(-15.0 + stride, 25.0),
+                         camera_center + QPointF(-21.0 + stride, 25.0))
+        painter.drawLine(camera_center + QPointF(12.0 - stride, 25.0),
+                         camera_center + QPointF(18.0 - stride, 25.0))
         painter.restore()
 
     # ------------------------------------------------------------------

@@ -60,6 +60,22 @@ Column
 			property var itemData: modelData
             property bool itemEnabled: modelData.enabled !== undefined ? modelData.enabled : true
 
+			function settingLabelText(expanded) {
+				var label = itemData.label || ""
+				var children = itemData.children
+				if (expanded || !children || children.length === 0 || children[0].value === undefined)
+					return label
+				var currentValue = children[0].currentValue
+				if (currentValue === undefined || currentValue === null) return label
+				var cleanLabel = String(label).replace(/\s+$/, "")
+				var separator = /:$/.test(cleanLabel) ? " " : " : "
+				return cleanLabel + separator + String(currentValue)
+			}
+
+			function refreshGroupLabel() {
+				textItm.text = settingLabelText(infoRow.expanded)
+			}
+
 			// LISTEN TO TARGETED SIGNALS
             Connections {
                 target: column_main
@@ -97,6 +113,7 @@ Column
 						accordionColumn.itemData.children[0].id === fieldId) {
 						if (newValue !== null && newValue !== undefined) {
 							accordionColumn.itemData.children[0].currentValue = newValue;
+							accordionColumn.refreshGroupLabel();
             
 							if(accordionColumn.itemData.children[0].value == "slider"){
 								sliderControl.value = newValue;
@@ -118,6 +135,7 @@ Column
 						accordionColumn.itemData.children[1].value == "checkbox"){  
 							accordionColumn.itemData.children[1].currentValue = newValue;
 							checkboxControl.checked = newValue;  // Use 'checked', not 'value'
+							accordionColumn.refreshGroupLabel();
 					}
 
 				}
@@ -141,6 +159,12 @@ Column
                 
                 // Handle dropdown options changes
                function onFieldOptionsChanged(fieldId, newOptions, selected) {
+					if (accordionColumn.itemData.children &&
+						accordionColumn.itemData.children.length > 0 &&
+						accordionColumn.itemData.children[0].id === fieldId) {
+						accordionColumn.itemData.children[0].currentValue = selected;
+						accordionColumn.refreshGroupLabel();
+					}
 					if (accordionColumn.itemData.id === fieldId) {
 						// Use a new array so QML observes additions/removals even when the
 						// source JavaScript model was already mutated in place.
@@ -203,6 +227,7 @@ Column
 							}
 						} else {
 							infoRow.expanded = !infoRow.expanded;
+							accordionColumn.refreshGroupLabel()
 							if (infoRow.expanded == true && modelData.children) {
 								logController.expandedItem(modelData.id)
 							}
@@ -238,20 +263,7 @@ Column
                     font.pixelSize: menuFontSize
 					color: accordionColumn.itemEnabled ? "#ffffff" : "#808080"  // Visual feedback
 					text: {
-						if (!accordionColumn.itemData.label) return ""
-                              return accordionColumn.itemData.label
-
-						/*var hasChildren = accordionColumn.itemData.children && accordionColumn.itemData.children.length > 0
-						if (!hasChildren) return accordionColumn.itemData.label
-					
-						var currentVal = accordionColumn.itemData.children[0].currentValue  
-						var valueStr = (currentVal !== undefined && currentVal !== null) ? String(currentVal) : ""
-
-						if(accordionColumn.itemData.id == "stillCapture" || accordionColumn.itemData.id == "vidProperties"){
-							valueStr = ""
-						}
-    
-						return accordionColumn.itemData.label + " " + valueStr*/
+						return accordionColumn.settingLabelText(infoRow.expanded)
 					}	
                 }				
 			}

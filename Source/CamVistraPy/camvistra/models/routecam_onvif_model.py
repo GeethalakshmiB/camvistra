@@ -22,7 +22,7 @@ import sys
 from PyQt5.QtCore import QObject, QProcess, pyqtSignal, pyqtSlot
 
 from camvistra import tslog
-from camvistra.models.wifi_onvif_model import c_div, out_struct, out_value, sdk_result
+from camvistra.models.wifi_onvif_model import c_div, fmt_number, out_struct, out_value, sdk_result
 
 _log = logging.getLogger(__name__)
 
@@ -187,7 +187,7 @@ class RoutecamOnvifModel(QObject):
             self.imgProperties.append(prop)
             fmt = prop["Compression"]
             resolution = f"{prop['width']}x{prop['height']}"
-            fps = f"{prop['fps']}fps"
+            fps = f"{fmt_number(prop['fps'])}fps"
             formatMap = propertiesMap.setdefault(fmt, {})
             resolutionMap = formatMap.setdefault(resolution, {})
             fpsList = list(resolutionMap.get("fps", []))
@@ -228,7 +228,7 @@ class RoutecamOnvifModel(QObject):
             self.currentFps = prop["fps"]
             self.currentHeight = prop["height"]
             self.currentImagePropertyChanged.emit(
-                prop["Compression"], f"{prop['width']}x{prop['height']}", f"{prop['fps']}fps")
+                prop["Compression"], f"{prop['width']}x{prop['height']}", f"{fmt_number(prop['fps'])}fps")
             return 1
         _log.debug("GetCurrentImageProperty failed")
         return 0
